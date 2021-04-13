@@ -1,27 +1,21 @@
-# VaisnavaCrud
+--------------------------------------------------------
+INICIANDO COM O PROJETO
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
+01 passo - Clonar o repositorio com o comando "git clone <url>"
 
-## Development server
+02 passo - Instalar o projeto como comando "npm install"
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+03 passo - Acessar a sua propria branch com o comando "git checkout <nome-da-branch>"
 
-## Code scaffolding
+04 passo - Localizar seu proprio component dentro da pasta src/app/content
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+--------------------------------------------------------
+TRABALHANDO NO PROJETO
 
-## Build
+-Sempre ter em mente a tarefa a ser realizada para fazer commit unicos
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+-Todo final do dia em que trabalhar no projeto, faca o git push da branch e no github abra o pull request para a master
 
-## Running unit tests
+-Apos todos aprovarem o PR de o merge
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+-Para atualizar sua branch local com a main remota use o comando "git pull origin main"

@@ -5,9 +5,11 @@ INICIANDO COM O PROJETO
 
 02 passo - Instalar o projeto como comando "npm install"
 
-03 passo - Acessar a sua propria branch com o comando "git checkout <nome-da-branch>"
+03 passo - Acessar a sua propria branch com o comando "git checkout nome-da-branch"
 
-04 passo - Localizar seu proprio component dentro da pasta src/app/content
+04 passo - Deixar um terminal apenas para rodar o comando "ng serve --open"
+
+05 passo - Localizar seu proprio component dentro da pasta src/app/content
 
 --------------------------------------------------------
 TRABALHANDO NO PROJETO

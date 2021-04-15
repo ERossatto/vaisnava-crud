@@ -5,7 +5,7 @@ INICIANDO COM O PROJETO
 
 02 passo - Instalar o projeto como comando "npm install"
 
-03 passo - Para ver as branchs existentes no projeto digite "git branch"
+03 passo - Para ver as branchs existentes no projeto digite "git branch -r"
 
 04 passo - Acessar a sua propria branch com o comando "git checkout &nome-da-branch&"
 

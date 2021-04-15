@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser'
 
 import { GovindaDasComponent } from './govinda-das/govinda-das.component';
 import { HomeComponent } from './home/home.component';
@@ -19,6 +20,7 @@ import { LilaGovindaComponent } from './lila-govinda/lila-govinda.component';
   imports: [
     CommonModule,
     FormsModule,
+    BrowserModule,
   ],
   exports: [
     HomeComponent,

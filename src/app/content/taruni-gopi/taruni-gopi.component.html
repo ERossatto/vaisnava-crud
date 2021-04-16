@@ -1,5 +1,43 @@
-<section class="section">taruni-gopi works!
+<section class="section">
 
-  <!-- escrever seu codigo aqui -->
+  <!-- CRUD: create, read, update and delete a register. -->
 
+  <div class="container">
+    <h1 class="title">Hare Krishna!</h1>
+    <p class="description">Escolha abaixo a opção desejada:</p>
+
+    <button (click)="toggleOpenPopUp = true">Cadastrar devoto(a)</button>
+    <button (click)="readRegister()">Exibir cadastros existentes</button>
+    <button (click)="updateRegister()">Atualizar cadastro</button>
+    <button (click)="deleteRegister()">Deletar cadastro</button>
+
+    <div class="open-popup" *ngIf="toggleOpenPopUp">
+      <button (click)="toggleOpenPopUp = false" class="open-popup__close">x</button>
+  
+      <label class="open-popup__label">Nome espiritual</label>
+      <input type="text" class="open-popup__input">
+      <label class="open-popup__label">Nome civil</label>
+      <input type="text" class="open-popup__input">
+      <label class="open-popup__label">Data de nascimento</label>
+      <input type="number" class="open-popup__input">
+      <label class="open-popup__label">Cidade</label>
+      <input type="text" class="open-popup__input">
+      <label class="open-popup__label">Estado</label>
+      <input type="text" class="open-popup__input">
+      <label class="open-popup__label">País</label>
+      <input type="text" class="open-popup__input">
+      <label class="open-popup__label">Telefone(com código do país e estado)</label>
+      <input type="number" class="open-popup__input">
+      <label class="open-popup__label">E-mail</label>
+      <input type="text" class="open-popup__input">
+      <label class="open-popup__label">Data da primeira iniciação</label>
+      <input type="number" class="open-popup__input">
+
+      <div class="open-popup__submit">
+        <button>Cadastrar</button>
+        <button>Cancelar</button>
+      </div>
+
+    </div>
+  </div>
 </section>

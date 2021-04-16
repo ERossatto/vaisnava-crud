@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaruniGopiComponent implements OnInit {
 
+  toggleOpenPopUp = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  createRegister () {
+
+  }
+
+  readRegister() {
+
+  }
+
+  updateRegister() {
+
+  }
+
+  deleteRegister() {
+    
   }
 
 }

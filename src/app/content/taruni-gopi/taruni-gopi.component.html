@@ -2,42 +2,65 @@
 
   <!-- CRUD: create, read, update and delete a register. -->
 
-  <div class="container">
-    <h1 class="title">Hare Krishna!</h1>
-    <p class="description">Escolha abaixo a opção desejada:</p>
+  <h1 class="title">Hare Krishna!</h1>
 
-    <button (click)="toggleOpenPopUp = true">Cadastrar devoto(a)</button>
-    <button (click)="readRegister()">Exibir cadastros existentes</button>
-    <button (click)="updateRegister()">Atualizar cadastro</button>
-    <button (click)="deleteRegister()">Deletar cadastro</button>
+  <!-- Botões da página inicial -->
+  <button class="button" (click)="toggleOpenCreatePopUp = true">Cadastrar novo devoto(a)</button>
+  <button class="button" (click)="toggleOpenReadPopUp = true">Exibir cadastros existentes</button>
+  <button class="button" (click)="toggleOpenUpdatePopUp = true">Atualizar cadastro</button>
+  <button class="button" (click)="toggleOpenDeletePopUp = true">Deletar cadastro</button>
 
-    <div class="open-popup" *ngIf="toggleOpenPopUp">
-      <button (click)="toggleOpenPopUp = false" class="open-popup__close">x</button>
-  
-      <label class="open-popup__label">Nome espiritual</label>
-      <input type="text" class="open-popup__input">
-      <label class="open-popup__label">Nome civil</label>
-      <input type="text" class="open-popup__input">
-      <label class="open-popup__label">Data de nascimento</label>
-      <input type="number" class="open-popup__input">
-      <label class="open-popup__label">Cidade</label>
-      <input type="text" class="open-popup__input">
-      <label class="open-popup__label">Estado</label>
-      <input type="text" class="open-popup__input">
-      <label class="open-popup__label">País</label>
-      <input type="text" class="open-popup__input">
-      <label class="open-popup__label">Telefone(com código do país e estado)</label>
-      <input type="number" class="open-popup__input">
-      <label class="open-popup__label">E-mail</label>
-      <input type="text" class="open-popup__input">
-      <label class="open-popup__label">Data da primeira iniciação</label>
-      <input type="number" class="open-popup__input">
+  <!-- Cadastrar novo devoto(a) -->
+  <div class="create-register-popup" *ngIf="toggleOpenCreatePopUp">
 
-      <div class="open-popup__submit">
-        <button>Cadastrar</button>
-        <button>Cancelar</button>
-      </div>
+    <label class="create-register-popup__label">Nome espiritual</label>
+    <input type="text" class="create-register-popup__input">
+    <label class="create-register-popup__label">Nome civil</label>
+    <input type="text" class="create-register-popup__input">
+    <label class="create-register-popup__label">Data de nascimento</label>
+    <input type="number" class="create-register-popup__input">
+    <label class="create-register-popup__label">Cidade</label>
+    <input type="text" class="create-register-popup__input">
+    <label class="create-register-popup__label">Estado</label>
+    <input type="text" class="create-register-popup__input">
+    <label class="create-register-popup__label">País</label>
+    <input type="text" class="create-register-popup__input">
+    <label class="create-register-popup__label">Telefone (com código do país e estado)</label>
+    <input type="number" class="create-register-popup__input">
+    <label class="create-register-popup__label">E-mail</label>
+    <input type="text" class="create-register-popup__input">
+    <label class="create-register-popup__label">Data da primeira iniciação</label>
+    <input type="number" class="create-register-popup__input">
 
+    <div class="popup-submit">
+      <button class="popup-submit__button">Cadastrar</button>
+      <button class="popup-submit__button" (click)="toggleOpenCreatePopUp = false">Cancelar</button>
     </div>
   </div>
+
+  <!-- Exibir cadastros existentes -->
+  <div class="read-register-popup" *ngIf="toggleOpenReadPopUp">
+
+    <div class="popup-submit">
+      <button class="popup-submit__button" (click)="toggleOpenReadPopUp = false">Fechar</button>
+    </div>
+
+  </div>
+
+  <!-- Atualizar cadastro -->
+  <div class="update-register-popup" *ngIf="toggleOpenUpdatePopUp">
+    <div class="popup-submit">
+      <button class="popup-submit__button">Atualizar</button>
+      <button class="popup-submit__button" (click)="toggleOpenUpdatePopUp = false">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- Deletar cadastro -->
+  <div class="delete-register-popup" *ngIf="toggleOpenDeletePopUp">
+    <div class="popup-submit">
+      <button class="popup-submit__button">Deletar</button>
+      <button class="popup-submit__button" (click)="toggleOpenDeletePopUp = false">Cancelar</button>
+    </div>
+  </div>
+
 </section>

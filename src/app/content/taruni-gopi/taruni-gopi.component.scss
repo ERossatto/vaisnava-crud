@@ -1,7 +1,33 @@
 @import "~variables.scss";
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-button {
+.section {
+  background-image: url(images/bg.jpg);
+
+  height: $height-less-header;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+.title {
+  margin-bottom: 50px;
+
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+
+  text-shadow: 1px 1px 3px rgb(151, 28, 53);
+}
+
+.button {
   width: 200px;
   height: 30px;
 
@@ -9,93 +35,120 @@ button {
   margin-bottom: 5px;
 
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
 
   cursor: pointer;
   outline: none; 
+
+  font-family: 'Roboto', sans-serif;
+  background-color: #e61e46;
+  color: white;
 }
 
-button:hover {
-  background-color: rgb(255, 191, 182);
+.button:hover {
+  background-color: #a81533;
+  color: white;
 }
 
-.section {
-  height: $height-less-header;
-  width: 100vw;
-}
-
-.container {
-  width: 50vw;
-  height: 88.9vh;
+.create-register-popup {
+  background-color: #ffffff;
   position: absolute;
-  left: 30%;
-
-  background-color: rgb(235, 72, 105);
+  width: 400px;
+  height: 430px;
+  border-radius: 2px;
+  padding: 32px;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.title {
-  font-family: 'Berkshire Swash', cursive;
-  font-size: 35px;
-  color: white;
-  text-align: center;
-}
-
-.description {
-  text-align: center;
-  color: rgb(255, 227, 176);
-  font-weight: 500;
-
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
-
-.open-popup {
-  background-color: lightgray;
-  position: absolute;
-  width: 50vw;
-  height: 90vh;
-  border-radius: 5px;
-  padding: 30px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  &__close {
-    position: relative;
-    top: -1px;
-    right: -2px;
-    width: 30px;
-    border-radius: 30px;
-    margin: 10px;
-    align-self: flex-end;
-  }
-
   &__label {
-    margin-bottom: 5px;
+    font-size: 12px;
+    align-self: flex-start;
   }
 
   &__input {
-    border: lightpink;
-    width: 50vw;
-    height: 30vh;
+    background-color: rgb(253, 228, 191);
+
+    width: 400px;
+    height: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
-    border-radius: 5px;
+    border: rgba(255, 160, 122, 0.253);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
     outline: none;
-  }
 
-  &__submit {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;    
   }
 }
 
+.read-register-popup {
+  background-color: #ffffff;
+  position: absolute;
+  width: 400px;
+  height: 430px;
+  border-radius: 2px;
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.update-register-popup {
+  background-color: #ffffff;
+  position: absolute;
+  width: 400px;
+  height: 430px;
+  border-radius: 2px;
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delete-register-popup {
+  background-color: #ffffff;
+  position: absolute;
+  width: 400px;
+  height: 430px;
+  border-radius: 2px;
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-submit {
+  width: 190px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  &__button {
+    text-align: center;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 90px;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+  
+  background-color: #e61e46;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+  }
+  
+  &__button:hover {
+    background-color: #a81533;
+  }
+}

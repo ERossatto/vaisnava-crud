@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaruniGopiComponent implements OnInit {
 
-  toggleOpenPopUp = false;
+  toggleOpenCreatePopUp = false;
+  toggleOpenReadPopUp = false;
+  toggleOpenUpdatePopUp = false;
+  toggleOpenDeletePopUp = false;
 
   constructor() { }
 

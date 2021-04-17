@@ -68,7 +68,7 @@
   }
 
   &__input {
-    background-color: rgb(253, 228, 191);
+    background-color: #fde4bf;
 
     width: 400px;
     height: 20px;
@@ -96,6 +96,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  &__box {
+    background-color: #fde4bf;
+    width: 350px;
+    height: 400px;
+    padding: 20px;
+    overflow: scroll;
+
+    text-align: justify;
+    font-size: 12px;
+  }
 }
 
 .update-register-popup {

@@ -2,8 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+button {
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  background-color: #F65A46;
+  color: white;
+  font-weight: 400;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+button:hover {
+  background-color: #fa7d4b;
+}
+
 .section {
-  background-image: url(images/bg.jpg);
+  background-image: url(images/background.jpg);
 
   height: $height-less-header;
   width: 100vw;
@@ -16,88 +33,57 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.title {
-  margin-bottom: 50px;
-
-  font-family: 'Berkshire Swash', cursive;
-  font-size: 40px;
-  color: rgb(255, 255, 255);
-  text-align: center;
-
-  text-shadow: 1px 1px 3px rgb(151, 28, 53);
-}
-
-.button {
+.homepage-button {
   width: 200px;
-  height: 30px;
-
-  margin-top: 5px;
-  margin-bottom: 5px;
-
-  border: none;
-  border-radius: 20px;
-
-  cursor: pointer;
-  outline: none; 
-
-  font-family: 'Roboto', sans-serif;
-  background-color: #e61e46;
-  color: white;
+  height: 50px;
+  margin-bottom: 20px;
 }
 
-.button:hover {
-  background-color: #a81533;
-  color: white;
-}
-
-.create-register-popup {
+.create-register {
   background-color: #ffffff;
   position: absolute;
-  width: 400px;
-  height: 430px;
-  border-radius: 2px;
-  padding: 32px;
+  top: 3%;
+  width: 450px;
+  height: 480px;
+  border-radius: 3px;
+  padding: 30px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
   &__label {
-    font-size: 12px;
+    font-size: 13px;
     align-self: flex-start;
+    font-family: 'Roboto', sans-serif;
   }
 
   &__input {
-    background-color: #fde4bf;
-
-    width: 400px;
-    height: 20px;
+    width: 445px;
+    height: 25px;
+    margin-bottom: 15px;
     margin-top: 5px;
-    margin-bottom: 5px;
-    border: rgba(255, 160, 122, 0.253);
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 2px;
     outline: none;
 
     font-family: 'Roboto', sans-serif;
-    font-size: 12px;    
+    font-size: 13px;    
   }
 }
 
-.read-register-popup {
+.show-registers {
   background-color: #ffffff;
   position: absolute;
-  width: 400px;
-  height: 430px;
-  border-radius: 2px;
-  padding: 32px;
+  top: 3%;
+  width: 450px;
+  height: 480px;
+  border-radius: 3px;
+  padding: 30px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  &__box {
+  &__scrollbox {
     background-color: #fde4bf;
     width: 350px;
     height: 400px;
@@ -109,34 +95,31 @@
   }
 }
 
-.update-register-popup {
-  background-color: #ffffff;
-  position: absolute;
-  width: 400px;
-  height: 430px;
-  border-radius: 2px;
-  padding: 32px;
-
+.input-container {
+  width: 500px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  &__label {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
 }
 
-.delete-register-popup {
-  background-color: #ffffff;
-  position: absolute;
-  width: 400px;
-  height: 430px;
-  border-radius: 2px;
-  padding: 32px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.popup-submit {
-  width: 190px;
+.popup-box {
+  width: 300px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -144,22 +127,9 @@
   margin-top: 20px;
 
   &__button {
-    text-align: center;
-    border-radius: 30px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    width: 90px;
-    height: 30px;
+    width: 100px;
+    height: 35px;
     margin-left: 5px;
     margin-right: 5px;
-  
-  background-color: #e61e46;
-    font-family: 'Roboto', sans-serif;
-    color: white;
-  }
-  
-  &__button:hover {
-    background-color: #a81533;
   }
 }

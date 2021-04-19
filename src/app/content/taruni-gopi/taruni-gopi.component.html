@@ -2,69 +2,58 @@
 
   <!-- CRUD: create, read, update and delete a register. -->
 
-  <h1 class="title">Guru Notes</h1>
+  <!-- <img src="images/guru-notes-logo.png" alt="Guru Notes Logo"> -->
 
   <!-- Botões da página inicial -->
-  <button class="button" (click)="toggleOpenCreatePopUp = true">Cadastrar novo devoto(a)</button>
-  <button class="button" (click)="toggleOpenReadPopUp = true">Exibir cadastros existentes</button>
-  <button class="button" (click)="toggleOpenUpdatePopUp = true">Atualizar cadastro</button>
-  <button class="button" (click)="toggleOpenDeletePopUp = true">Deletar cadastro</button>
+  <button class="homepage-button" (click)="toggleOpenCreateRegister = true">Register new devotee</button>
+  <button class="homepage-button" (click)="toggleOpenShowRegisters = true">Show registers</button>
 
   <!-- Cadastrar novo devoto(a) -->
-  <div class="create-register-popup" *ngIf="toggleOpenCreatePopUp">
+  <div class="create-register" *ngIf="toggleOpenCreateRegister">
 
-    <label class="create-register-popup__label">Nome espiritual</label>
-    <input type="text" class="create-register-popup__input">
-    <label class="create-register-popup__label">Nome civil</label>
-    <input type="text" class="create-register-popup__input">
-    <label class="create-register-popup__label">Data de nascimento</label>
-    <input type="number" class="create-register-popup__input">
-    <label class="create-register-popup__label">Cidade</label>
-    <input type="text" class="create-register-popup__input">
-    <label class="create-register-popup__label">Estado</label>
-    <input type="text" class="create-register-popup__input">
-    <label class="create-register-popup__label">País</label>
-    <input type="text" class="create-register-popup__input">
-    <label class="create-register-popup__label">Telefone (com código do país e estado)</label>
-    <input type="number" class="create-register-popup__input">
-    <label class="create-register-popup__label">E-mail</label>
-    <input type="text" class="create-register-popup__input">
-    <label class="create-register-popup__label">Data da primeira iniciação</label>
-    <input type="number" class="create-register-popup__input">
+    <label class="create-register__label">Spiritual name</label>
+    <input type="text" class="create-register__input">
+    <label class="create-register__label">Civil name</label>
+    <input type="text" class="create-register__input">
+    <label class="create-register__label">City</label>
+    <input type="text" class="create-register__input">
+    <label class="create-register__label">State</label>
+    <input type="text" class="create-register__input">
+    <label class="create-register__label">Country</label>
+    <input type="text" class="create-register__input">
+    <label class="create-register__label">Telephone number</label>
+    <input type="number" class="create-register__input">
+    <label class="create-register__label">E-mail</label>
+    <input type="text" class="create-register__input">
 
-    <div class="popup-submit">
-      <button class="popup-submit__button">Cadastrar</button>
-      <button class="popup-submit__button" (click)="toggleOpenCreatePopUp = false">Cancelar</button>
+    <div class="input-container">
+      <div class="input-container__box">
+          <label class="input-container__label">Date of birth</label>
+          <input type="date" style="width: 130px;" class="input-box">
+      </div>
+      <div class="input-container__box">
+          <label class="input-container__label">First initiation date</label>
+          <input type="date" style="width: 130px;" class="input-box">
+      </div>
+    </div>
+
+    <div class="popup-box">
+      <button class="popup-box__button" (click)="createRegister()">Register</button>
+      <button class="popup-box__button" (click)="toggleOpenCreateRegister = false">Cancel</button>
     </div>
   </div>
 
   <!-- Exibir cadastros existentes -->
-  <div class="read-register-popup" *ngIf="toggleOpenReadPopUp">
+  <div class="show-registers" *ngIf="toggleOpenShowRegisters">
 
-    <div class="read-register-popup__box">
+    <div class="show-registers__scrollbox">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eum repudiandae, reprehenderit numquam ad facere minima laudantium tenetur perferendis, beatae laborum? Reprehenderit saepe ipsum nulla consequatur ut nesciunt magnam architecto. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam totam hic, atque praesentium placeat illo voluptatem est fuga, veniam qui voluptates! Voluptatem animi saepe libero unde blanditiis, deserunt aut cumque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim dolorum modi quos sunt commodi quibusdam adipisci. Soluta quod culpa natus ea hic quia nemo magni delectus doloribus. Non, soluta asperiores. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint veritatis, optio natus laborum debitis beatae dignissimos labore dolorum, molestias velit iure atque amet at nemo quod doloremque consequatur? Recusandae, ipsam! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni numquam nostrum beatae dicta culpa fuga, veniam necessitatibus debitis quaerat ad sapiente quisquam blanditiis minus qui error labore eveniet quo praesentium. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium voluptates suscipit tempora illum laborum iste dignissimos iusto beatae sed eligendi, error inventore tenetur. Voluptatibus nemo nesciunt mollitia recusandae blanditiis atque! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum quo ratione consectetur, accusantium laboriosam tenetur eos aspernatur nulla. Consequatur laborum, iste error tempore dignissimos vero inventore est eveniet nostrum earum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, eum enim accusamus nostrum quod et expedita error minus distinctio veniam debitis ad eligendi, consequuntur eaque nulla obcaecati tempora iure blanditiis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas excepturi natus magnam rerum aspernatur quae, aut hic non? Distinctio voluptatem pariatur accusamus nesciunt, eius consequuntur magnam libero maiores nam mollitia! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi impedit et explicabo ducimus repellendus eum non tempora odio sapiente deserunt aliquam, nihil atque, maiores ut temporibus nam delectus reprehenderit laboriosam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iste culpa doloribus nemo accusantium nam, molestias nulla necessitatibus qui a sit nostrum incidunt odit voluptatibus temporibus. Hic ratione exercitationem architecto. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis eum a nam iusto et ad blanditiis. Maxime praesentium sit sequi id voluptas ea aspernatur? Consequatur eius assumenda tempora sint commodi.</p>
     </div>
 
-    <div class="popup-submit">
-      <button class="popup-submit__button" (click)="toggleOpenReadPopUp = false">Fechar</button>
+    <div class="popup-box">
+      <button class="popup-box__button" (click)="toggleOpenShowRegisters = false">Close</button>
     </div>
 
-  </div>
-
-  <!-- Atualizar cadastro -->
-  <div class="update-register-popup" *ngIf="toggleOpenUpdatePopUp">
-    <div class="popup-submit">
-      <button class="popup-submit__button">Atualizar</button>
-      <button class="popup-submit__button" (click)="toggleOpenUpdatePopUp = false">Cancelar</button>
-    </div>
-  </div>
-
-  <!-- Deletar cadastro -->
-  <div class="delete-register-popup" *ngIf="toggleOpenDeletePopUp">
-    <div class="popup-submit">
-      <button class="popup-submit__button">Deletar</button>
-      <button class="popup-submit__button" (click)="toggleOpenDeletePopUp = false">Cancelar</button>
-    </div>
   </div>
 
 </section>

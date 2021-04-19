@@ -7,10 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaruniGopiComponent implements OnInit {
 
-  toggleOpenCreatePopUp = false;
-  toggleOpenReadPopUp = false;
-  toggleOpenUpdatePopUp = false;
-  toggleOpenDeletePopUp = false;
+  toggleOpenCreateRegister = false;
+  toggleOpenShowRegisters = false;
 
   constructor() { }
 
@@ -18,19 +16,11 @@ export class TaruniGopiComponent implements OnInit {
   }
 
   createRegister () {
-
+    alert('Haribol!')
+    this.toggleOpenCreateRegister = false;
   }
 
-  readRegister() {
+  showRegisters() {
 
   }
-
-  updateRegister() {
-
-  }
-
-  deleteRegister() {
-    
-  }
-
 }

@@ -5,6 +5,35 @@
   width: 100vw;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+
+  .popup {
+    position: absolute;
+
+    background-color: gray;
+    height: 20rem;
+    width: 15rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & input {
+      width: 10rem;
+      margin: .5rem 0;
+      padding: .5rem;
+    }
+  }
+
+  .item-list {
+    background-color: green;
+
+    &__item {
+      padding: .5rem;
+      margin: .5rem;
+    }
+  }
 }

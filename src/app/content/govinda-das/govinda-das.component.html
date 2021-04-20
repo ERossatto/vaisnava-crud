@@ -1,5 +1,44 @@
-<section class="section">govinda-das works!
+<section class="section">
 
-  <!-- escrever seu codigo aqui -->
+  <div>
+    <button (click)="toggle.create = true">Adicionar novo Pokemon</button>
+    <button (click)="teste()">teste</button>
+  </div>
+
+  <div class="popup" *ngIf="toggle.create">
+    <input type="text" [(ngModel)]="pokemon.name" placeholder="Digite o nome do Pokemon">
+    <input type="number" [(ngModel)]="pokemon.atk" placeholder="Digite o ataque do Pokemon">
+    <input type="number" [(ngModel)]="pokemon.def" placeholder="Digite a defesa do Pokemon">
+    <input type="text" [(ngModel)]="pokemon.element" placeholder="Digite o elemento do Pokemon">
+
+    <button (click)="create()">Concluir</button>
+    <button (click)="toggle.create = false">Fechar</button>
+  </div>
+
+  <div class="item-list">
+
+    <ul *ngFor="let item of dataBase; index as i">
+      <li
+        class="item-list__item">
+          Nome: {{ item.name }} -
+          Ataque: {{ item.atk }} -
+          Defesa: {{ item.def }} -
+          Elemento: {{ item.element }}
+          <button (click)="openUpdatePopup(item, i)">Alterar</button>
+          <button (click)="delete(i)">Deletar</button>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="popup" *ngIf="toggle.update">
+    <input type="text" [(ngModel)]="itemToUpdate.item.name" placeholder="Digite o nome do Pokemon">
+    <input type="number" [(ngModel)]="itemToUpdate.item.atk" placeholder="Digite o ataque do Pokemon">
+    <input type="number" [(ngModel)]="itemToUpdate.item.def" placeholder="Digite a defesa do Pokemon">
+    <input type="text" [(ngModel)]="itemToUpdate.item.element" placeholder="Digite o elemento do Pokemon">
+
+    <button (click)="update()">Concluir</button>
+    <button (click)="toggle.update = false">Fechar</button>
+  </div>
 
 </section>

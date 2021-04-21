@@ -4,6 +4,7 @@ $width-dash: 25vw;
 $width-dash-mobile: 100vw;
 
 .menu-dash {
+  z-index: 2;
   background: linear-gradient(
     -45deg,
     #f9ae9f, #f9ae9f 60%, #fcd7cf

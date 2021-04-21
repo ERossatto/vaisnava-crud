@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { TulasiDasComponent } from './tulasi-das/tulasi-das.component';
 import { TaruniGopiComponent } from './taruni-gopi/taruni-gopi.component';
 import { LilaGovindaComponent } from './lila-govinda/lila-govinda.component';
+import { CheckListComponent } from './check-list/check-list.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { LilaGovindaComponent } from './lila-govinda/lila-govinda.component';
     TulasiDasComponent,
     TaruniGopiComponent,
     LilaGovindaComponent,
+    CheckListComponent,
   ],
   imports: [
     CommonModule,

@@ -43,6 +43,7 @@ button:hover {
   background-color: #ffffff;
   position: absolute;
   top: 3%;
+  // top: calc(3% + #{$header-height});
   width: 450px;
   height: 480px;
   border-radius: 3px;
@@ -66,7 +67,7 @@ button:hover {
     outline: none;
 
     font-family: 'Roboto', sans-serif;
-    font-size: 13px;    
+    font-size: 13px;
   }
 }
 
@@ -89,6 +90,7 @@ button:hover {
     height: 400px;
     padding: 20px;
     overflow: scroll;
+    // overflow: auto;
 
     text-align: justify;
     font-size: 12px;
@@ -110,7 +112,7 @@ button:hover {
     margin-left: 10px;
     margin-right: 10px;
   }
-  
+
   &__label {
     font-size: 12px;
     margin-top: 10px;

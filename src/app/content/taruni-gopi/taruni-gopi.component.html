@@ -5,6 +5,8 @@
   <!-- <img src="images/guru-notes-logo.png" alt="Guru Notes Logo"> -->
 
   <!-- Botões da página inicial -->
+  <!-- <img src="../../../assets/taruni-gopi/guru-notes-logo.png" alt="logo"> -->
+
   <button class="homepage-button" (click)="toggleOpenCreateRegister = true">Register new devotee</button>
   <button class="homepage-button" (click)="toggleOpenShowRegisters = true">Show registers</button>
 
@@ -12,28 +14,34 @@
   <div class="create-register" *ngIf="toggleOpenCreateRegister">
 
     <label class="create-register__label">Spiritual name</label>
-    <input type="text" class="create-register__input">
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.spiritualName">
+
     <label class="create-register__label">Civil name</label>
-    <input type="text" class="create-register__input">
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.socialName">
+
     <label class="create-register__label">City</label>
-    <input type="text" class="create-register__input">
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.adress.city">
+
     <label class="create-register__label">State</label>
-    <input type="text" class="create-register__input">
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.adress.state">
+
     <label class="create-register__label">Country</label>
-    <input type="text" class="create-register__input">
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.adress.country">
+
     <label class="create-register__label">Telephone number</label>
-    <input type="number" class="create-register__input">
+    <input type="number" class="create-register__input" [(ngModel)]="devotee.contact.phone">
+
     <label class="create-register__label">E-mail</label>
-    <input type="text" class="create-register__input">
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.contact.email">
 
     <div class="input-container">
       <div class="input-container__box">
           <label class="input-container__label">Date of birth</label>
-          <input type="date" style="width: 130px;" class="input-box">
+          <input type="date" style="width: 130px;" class="input-box" [(ngModel)]="devotee.dateOfBirth">
       </div>
       <div class="input-container__box">
           <label class="input-container__label">First initiation date</label>
-          <input type="date" style="width: 130px;" class="input-box">
+          <input type="date" style="width: 130px;" class="input-box" [(ngModel)]="devotee.dateOfInitiation">
       </div>
     </div>
 
@@ -48,6 +56,13 @@
 
     <div class="show-registers__scrollbox">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eum repudiandae, reprehenderit numquam ad facere minima laudantium tenetur perferendis, beatae laborum? Reprehenderit saepe ipsum nulla consequatur ut nesciunt magnam architecto. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam totam hic, atque praesentium placeat illo voluptatem est fuga, veniam qui voluptates! Voluptatem animi saepe libero unde blanditiis, deserunt aut cumque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim dolorum modi quos sunt commodi quibusdam adipisci. Soluta quod culpa natus ea hic quia nemo magni delectus doloribus. Non, soluta asperiores. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint veritatis, optio natus laborum debitis beatae dignissimos labore dolorum, molestias velit iure atque amet at nemo quod doloremque consequatur? Recusandae, ipsam! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni numquam nostrum beatae dicta culpa fuga, veniam necessitatibus debitis quaerat ad sapiente quisquam blanditiis minus qui error labore eveniet quo praesentium. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium voluptates suscipit tempora illum laborum iste dignissimos iusto beatae sed eligendi, error inventore tenetur. Voluptatibus nemo nesciunt mollitia recusandae blanditiis atque! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum quo ratione consectetur, accusantium laboriosam tenetur eos aspernatur nulla. Consequatur laborum, iste error tempore dignissimos vero inventore est eveniet nostrum earum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, eum enim accusamus nostrum quod et expedita error minus distinctio veniam debitis ad eligendi, consequuntur eaque nulla obcaecati tempora iure blanditiis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas excepturi natus magnam rerum aspernatur quae, aut hic non? Distinctio voluptatem pariatur accusamus nesciunt, eius consequuntur magnam libero maiores nam mollitia! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi impedit et explicabo ducimus repellendus eum non tempora odio sapiente deserunt aliquam, nihil atque, maiores ut temporibus nam delectus reprehenderit laboriosam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iste culpa doloribus nemo accusantium nam, molestias nulla necessitatibus qui a sit nostrum incidunt odit voluptatibus temporibus. Hic ratione exercitationem architecto. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis eum a nam iusto et ad blanditiis. Maxime praesentium sit sequi id voluptas ea aspernatur? Consequatur eius assumenda tempora sint commodi.</p>
+      <!-- <ul *ngFor="let item of dataBase; index as i">
+        <li>
+          <p>{{item.spiritualName}}</p>
+          <button (click)="deleteRegister(i)">delete</button>
+        </li>
+      </ul> -->
+
     </div>
 
     <div class="popup-box">

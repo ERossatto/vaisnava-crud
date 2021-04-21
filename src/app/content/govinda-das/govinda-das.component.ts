@@ -12,7 +12,7 @@ export class GovindaDasComponent implements OnInit {
   toggle = {
     create: false,
     update: false,
-  }
+  };
 
   pokemon = {
     name: undefined,
@@ -24,11 +24,13 @@ export class GovindaDasComponent implements OnInit {
   itemToUpdate = {
     index: undefined,
     item: undefined,
-  }
+  };
+
+  shakeTest = false;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   create() {
@@ -64,7 +66,7 @@ export class GovindaDasComponent implements OnInit {
   }
 
   teste() {
-    console.log('nosso database: ', this.dataBase);
+    this.shakeTest = !this.shakeTest;
   }
 
 }

@@ -46,7 +46,7 @@ export class TaruniGopiComponent implements OnInit {
   }
 
   deleteRegister( index ) {
-    this.toggleOpenDeleteConfirmation = true;
+    this.toggleOpenDeleteConfirmation = false;
 
     this.dataBase.splice( index, 1 );
   }

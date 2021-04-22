@@ -41,9 +41,6 @@ export class TaruniGopiComponent implements OnInit {
     this.dataBase.push({...this.devotee});
   }
 
-  showRegisters() {
-  }
-
   updateRegister() {
   }
 

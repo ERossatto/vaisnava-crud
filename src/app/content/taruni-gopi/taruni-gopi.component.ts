@@ -14,6 +14,13 @@ export class TaruniGopiComponent implements OnInit {
   toggleOpenRegisterConfirmation = false;
   toggleOpenDeleteConfirmation = false;
 
+  // toggle = {
+  //   createRegister: false,
+  //   showRegisters: false,
+  //   registerConfirmation: false,
+  //   DeleteConfirmation: false,
+  // };
+
   devotee = {
     spiritualName: undefined,
     socialName: undefined,
@@ -30,6 +37,11 @@ export class TaruniGopiComponent implements OnInit {
     dateOfInitiation: undefined,
   }
 
+  itemToDelete = {
+    index: undefined,
+    item: undefined,
+  };
+
   constructor() { }
 
   ngOnInit(): void {
@@ -40,9 +52,18 @@ export class TaruniGopiComponent implements OnInit {
     this.toggleOpenRegisterConfirmation = true;
 
     this.dataBase.push({...this.devotee});
+
+    // resetar as variaveis
   }
 
   updateRegister() {
+  }
+
+  confirmDelete( item, index ) {
+    this.toggleOpenDeleteConfirmation = true;
+
+    this.itemToDelete.item = item;
+    this.itemToDelete.index = index;
   }
 
   deleteRegister( index ) {

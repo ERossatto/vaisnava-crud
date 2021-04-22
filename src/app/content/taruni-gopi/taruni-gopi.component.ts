@@ -12,6 +12,7 @@ export class TaruniGopiComponent implements OnInit {
   toggleOpenCreateRegister = false;
   toggleOpenShowRegisters = false;
   toggleOpenRegisterConfirmation = false;
+  toggleOpenDeleteConfirmation = false;
 
   devotee = {
     spiritualName: undefined,
@@ -45,6 +46,8 @@ export class TaruniGopiComponent implements OnInit {
   }
 
   deleteRegister( index ) {
+    this.toggleOpenDeleteConfirmation = true;
+
     this.dataBase.splice( index, 1 );
   }
 }

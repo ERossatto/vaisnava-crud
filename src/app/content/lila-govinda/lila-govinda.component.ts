@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-lila-govinda',
@@ -12,4 +13,8 @@ export class LilaGovindaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+}
+
+function $getElementsByClassName(dados: any) {
+  throw new Error('Function not implemented.');
 }

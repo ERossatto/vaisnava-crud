@@ -29,7 +29,7 @@
     <label class="create-register__label">Country</label>
     <input type="text" class="create-register__input" [(ngModel)]="devotee.adress.country">
 
-    <label class="create-register__label">Telephone number</label>
+    <label class="create-register__label">Phone number</label>
     <input type="number" class="create-register__input" [(ngModel)]="devotee.contact.phone">
 
     <label class="create-register__label">E-mail</label>
@@ -41,7 +41,7 @@
           <input type="date" style="width: 130px;" class="input-box" [(ngModel)]="devotee.dateOfBirth">
       </div>
       <div class="input-container__box">
-          <label class="input-container__label">First initiation date</label>
+          <label class="input-container__label">Date of initiation</label>
           <input type="date" style="width: 130px;" class="input-box" [(ngModel)]="devotee.dateOfInitiation">
       </div>
     </div>
@@ -57,10 +57,14 @@
 
     <div class="show-registers__scrollbox">
       <div class="show-registers__scrollbox__items" *ngFor="let item of dataBase; index as i">
-          <p><span style="font-weight: bold;">{{i + 1}}</span> - {{item.spiritualName}} | {{item.socialName}} | {{item.adress.city}}, {{item.adress.state}}, {{item.adress.country}} | {{item.contact.phone}} | {{item.contact.email}} | {{item.dateOfBirth}} | {{item.dateOfInitiation}}</p>
+          <p>
+            <span style="font-weight: bold;">{{item.spiritualName}}</span> | {{item.socialName}} | {{item.adress.city}}, {{item.adress.state}}, {{item.adress.country}} | {{item.contact.phone}} | {{item.contact.email}} |  Date of birth: {{item.dateOfBirth}} | Date of initiation: {{item.dateOfInitiation}}
+          </p>
 
-          <button (click)="changeRegister()" class="show-registers__scrollbox__items__button">Change</button>
-          <button (click)="deleteRegister(i)" class="show-registers__scrollbox__items__button">Delete</button>
+          <div style="display: flex; justify-content: center;">
+            <button (click)="changeRegister()" class="show-registers__scrollbox__items__button">Change</button>
+            <button (click)="deleteRegister(i)" class="show-registers__scrollbox__items__button">Delete</button>
+          </div>
       </div>
     </div>
 

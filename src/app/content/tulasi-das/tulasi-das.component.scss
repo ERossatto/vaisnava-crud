@@ -1,10 +1,79 @@
 @import "~variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
+ 
 .section {
-  height: $height-less-header;
-  width: 100vw;
+    height: $height-less-header;
+    width: 100%;
+    position: absolute;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0.1rem;
+    
+    
+    background-color: #f9f9fa;
+      
+    font-family: 'Ubuntu', sans-serif;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-image: url(./images/medica.jpg);
+    background-position: right top; 
+    background-repeat: no-repeat;
+        
+  
+  h1 {
+    position: relative; 
+    bottom: 16rem;
+    left: 12rem;
+
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+  .register {
+      
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    width: 40%;
+    height: 50%;
+      
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #00995d;
+      
+    border-radius: 8px;
+
+    .label {
+      width: 35%;
+        
+      font-weight: bold;
+      font-family: 'Ubuntu', sans-serif;
+      }
+
+    .input {
+      height: 6%;
+      width: 35%;
+        
+      outline: none;
+        
+      border-radius: 8px;
+      }
+
+    #speciality {
+      height: 8%;
+      width: 36%;
+        
+      outline: none;
+        
+      border-radius: 8px;
+      }
+
+  }
 }
+
+
+
+
+

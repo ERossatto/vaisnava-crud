@@ -1,27 +1,55 @@
-<body>
-    <section>
-        <p>Primeiro nome
-            <input type="text" name="firstname" id="firstname" required></p>
-        <p>Sobrenome
-            <input type="text" name="lastname" id="lastname"></p>
-        <p>Email
-            <input type="text" name="email" id="email" required></p>
-        <p>Senha
-            <input type="password" name="pass" id="pass" minlength="8" required></p>
-        <p>Aniversário
-            <input type="date" name="birthday" id="birthday"></p>
+<!-- <body> -->
+  <section class="section">
 
-        <p>Gênero</p>
+    <button (click)="toggle.register = true">Cadastrar</button>
 
-            <label for="male">Masculino</label>
-            <input type="radio" name="radsex" id="male">
+    <div class="popup" *ngIf="toggle.register">
 
-            <label for="female">Feminino</label>
-            <input type="radio" name="radsex" id="female">
+      <button class="popup__close" (click)="toggle.register = false">x</button>
 
-            <label for="other">Outro</label>
-            <input type="radio" name="radsex" id="other">
+      <label>Primeiro nome</label>
+      <input type="text" name="firstname" id="firstname" required>
 
-        <input type="submit" value="Se inscrever">
-    </section>
-</body>
+      <label>Sobrenome</label>
+      <input type="text" name="lastname" id="lastname">
+
+      <label>Email</label>
+      <input type="text" name="email" id="email" required>
+
+      <label>Senha</label>
+      <input type="password" name="pass" id="pass" minlength="8" required>
+
+      <label>Aniversário</label>
+      <input type="date" name="birthday" id="birthday">
+
+      <p>Gênero</p>
+
+      <div>
+        <label for="male">Masculino</label>
+        <input type="radio" name="radsex" id="male">
+
+        <label for="female">Feminino</label>
+        <input type="radio" name="radsex" id="female">
+
+        <label for="other">Outro</label>
+        <input type="radio" name="radsex" id="other" (click)="toggle.othersDescription = true">
+        <input type="text" placeholder="descricao" *ngIf="toggle.othersDescription">
+
+      </div>
+
+      <input type="submit" value="Se inscrever">
+
+    </div>
+
+    <!-- <div style="height: 25rem; background-color: blue;">
+      <ul *ngFor="let item of mockDataBase">
+        <li>
+          {{ item }}
+        </li>
+        <button>delete</button>
+        <button>update</button>
+      </ul>
+    </div> -->
+
+  </section>
+<!-- </body> -->

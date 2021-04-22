@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { $ } from 'protractor';
 
 @Component({
   selector: 'app-lila-govinda',
@@ -8,13 +7,24 @@ import { $ } from 'protractor';
 })
 export class LilaGovindaComponent implements OnInit {
 
-  constructor() { }
+  // variaveis aqui
 
-  ngOnInit(): void {
+  dataBase = [];
+
+  mockDataBase = ['um', 'dois', ' tres', 'quatro', 'cinco', 'seis'];
+
+  toggle = {
+    register: false,
+    othersDescription: false
   }
 
-}
+  constructor() { }
 
-function $getElementsByClassName(dados: any) {
-  throw new Error('Function not implemented.');
+  ngOnInit() {
+  }
+
+  // metodos aqui
+
+
+
 }

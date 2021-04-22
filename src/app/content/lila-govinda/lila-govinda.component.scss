@@ -5,18 +5,40 @@
   width: 100vw;
 }
 
-body {
-background: #9A88FF;
+.section {
+  background: #9A88FF;
+  height: $height-less-header;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-section {
+.popup {
+  position: absolute;
+
+  height: 20rem;
   background: #D77AFF;
   border-radius: 10px;
   padding: 15px;
   width: 500px;
-  margin: auto;
+  // margin: auto;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.500);
   padding: 42px;
-  display: grid;
-  justify-content:space-around;
+
+  // display: grid;
+  // justify-content:space-around;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  &__close {
+    position: relative;
+
+    align-self: flex-end;
+    top: -40px;
+    right: -33px;
+  }
 }

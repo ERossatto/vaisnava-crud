@@ -74,6 +74,20 @@ button:hover {
   }
 }
 
+.create-register-confirmation {
+  background-color: white;
+  position: absolute;
+  margin: auto;
+  width: auto;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.219);
+
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
 .show-registers {
   background-color: #ffffff;
   position: absolute;

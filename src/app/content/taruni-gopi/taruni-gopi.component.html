@@ -52,6 +52,13 @@
     </div>
   </div>
 
+  <!-- Pop-up de confirmação do cadastro -->
+  <div class="create-register-confirmation" *ngIf="toggleOpenRegisterConfirmation">
+    <p>Devotee successfully registered!</p>
+    
+    <button style="margin-top: 20px; width: 50px; height: 30px;" (click)="toggleOpenRegisterConfirmation = false">OK</button>
+  </div>
+
   <!-- Exibir cadastros existentes -->
   <div class="show-registers" *ngIf="toggleOpenShowRegisters">
 

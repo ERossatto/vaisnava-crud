@@ -11,6 +11,7 @@ export class TaruniGopiComponent implements OnInit {
 
   toggleOpenCreateRegister = false;
   toggleOpenShowRegisters = false;
+  toggleOpenRegisterConfirmation = false;
 
   devotee = {
     spiritualName: undefined,
@@ -35,6 +36,7 @@ export class TaruniGopiComponent implements OnInit {
 
   createRegister () {
     this.toggleOpenCreateRegister = false;
+    this.toggleOpenRegisterConfirmation = true;
 
     this.dataBase.push({...this.devotee});
   }

@@ -44,7 +44,7 @@ export class TaruniGopiComponent implements OnInit {
   showRegisters() {
   }
 
-  changeRegister() {
+  updateRegister() {
   }
 
   deleteRegister( index ) {

@@ -9,17 +9,12 @@ export class TaruniGopiComponent implements OnInit {
 
   dataBase = [];
 
-  toggleOpenCreateRegister = false;
-  toggleOpenShowRegisters = false;
-  toggleOpenRegisterConfirmation = false;
-  toggleOpenDeleteConfirmation = false;
-
-  // toggle = {
-  //   createRegister: false,
-  //   showRegisters: false,
-  //   registerConfirmation: false,
-  //   DeleteConfirmation: false,
-  // };
+  toggle = {
+    createRegister: false,
+    listRegister: false,
+    registerConfirmation: false,
+    deleteConfirmation: false,
+  };
 
   devotee = {
     spiritualName: undefined,
@@ -48,8 +43,8 @@ export class TaruniGopiComponent implements OnInit {
   }
 
   createRegister () {
-    this.toggleOpenCreateRegister = false;
-    this.toggleOpenRegisterConfirmation = true;
+    this.toggle.createRegister = false;
+    this.toggle.registerConfirmation = true;
 
     this.dataBase.push({...this.devotee});
 
@@ -60,14 +55,14 @@ export class TaruniGopiComponent implements OnInit {
   }
 
   confirmDelete( item, index ) {
-    this.toggleOpenDeleteConfirmation = true;
+    this.toggle.deleteConfirmation = true;
 
     this.itemToDelete.item = item;
     this.itemToDelete.index = index;
   }
 
   deleteRegister( index ) {
-    this.toggleOpenDeleteConfirmation = false;
+    this.toggle.deleteConfirmation = false;
 
     this.dataBase.splice( index, 1 );
   }

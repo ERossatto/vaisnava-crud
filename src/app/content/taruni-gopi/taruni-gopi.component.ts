@@ -11,8 +11,8 @@ export class TaruniGopiComponent implements OnInit {
 
   toggle = {
     createRegister: false,
-    listRegister: false,
     registerConfirmation: false,
+    listRegister: false,
     deleteConfirmation: false,
   };
 
@@ -43,10 +43,9 @@ export class TaruniGopiComponent implements OnInit {
   }
 
   createRegister () {
+    this.dataBase.push({...this.devotee});
     this.toggle.createRegister = false;
     this.toggle.registerConfirmation = true;
-
-    this.dataBase.push({...this.devotee});
 
     // resetar as variaveis
   }
@@ -55,15 +54,13 @@ export class TaruniGopiComponent implements OnInit {
   }
 
   confirmDelete( item, index ) {
-    this.toggle.deleteConfirmation = true;
-
     this.itemToDelete.item = item;
     this.itemToDelete.index = index;
+    this.toggle.deleteConfirmation = true;
   }
 
   deleteRegister( index ) {
-    this.toggle.deleteConfirmation = false;
-
     this.dataBase.splice( index, 1 );
+    this.toggle.deleteConfirmation = false;
   }
 }

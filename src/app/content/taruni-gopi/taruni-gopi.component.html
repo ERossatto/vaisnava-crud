@@ -9,7 +9,7 @@
   <!-- Botões da página inicial -->
 
   <div class="homepage-buttons-box">
-    <button class="homepage-buttons-box__button" (click)="toggle.createRegister = true">Register new devotee</button>
+    <button class="homepage-buttons-box__button" (click)="toggle.createRegister = true; toggle.registerConfirmation = false">Register new devotee</button>
     <button class="homepage-buttons-box__button" (click)="toggle.registerList = true; toggle.registerConfirmation = false">Show registers</button>
   </div>
 
@@ -74,7 +74,7 @@
 
           <div class="popup-button-box">
             <button class="popup-button-box__button" (click)="updateRegister()">Update</button>
-            <button class="popup-button-box__button" (click)="confirmDelete( item, index )">Delete</button>
+            <button class="popup-button-box__button" (click)="confirmDelete(i)">Delete</button>
           </div>
       </div>
 

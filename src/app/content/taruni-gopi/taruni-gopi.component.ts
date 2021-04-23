@@ -34,7 +34,6 @@ export class TaruniGopiComponent implements OnInit {
 
   itemToDelete = {
     index: undefined,
-    item: undefined,
   };
 
   constructor() { }
@@ -42,21 +41,31 @@ export class TaruniGopiComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createRegister () {
+  devoteeReset() {
+    this.devotee.spiritualName = undefined;
+    this.devotee.socialName = undefined;
+    this.devotee.adress.city = undefined;
+    this.devotee.adress.state = undefined;
+    this.devotee.adress.country = undefined;
+    this.devotee.contact.phone = undefined;
+    this.devotee.contact.email = undefined;
+    this.devotee.dateOfBirth = undefined;
+    this.devotee.dateOfInitiation = undefined;
+  }
+
+  createRegister() {
     this.dataBase.push({...this.devotee});
     this.toggle.createRegister = false;
     this.toggle.registerConfirmation = true;
 
-    // resetar as variaveis
+    this.devoteeReset()
   }
 
   updateRegister() {
   }
 
-  confirmDelete( item, index ) {
+  confirmDelete( index ) {
     this.toggle.deleteConfirmation = true;
-    
-    this.itemToDelete.item = item;
     this.itemToDelete.index = index;
   }
 

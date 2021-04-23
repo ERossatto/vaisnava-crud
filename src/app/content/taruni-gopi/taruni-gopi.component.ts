@@ -54,9 +54,10 @@ export class TaruniGopiComponent implements OnInit {
   }
 
   confirmDelete( item, index ) {
+    this.toggle.deleteConfirmation = true;
+    
     this.itemToDelete.item = item;
     this.itemToDelete.index = index;
-    this.toggle.deleteConfirmation = true;
   }
 
   deleteRegister( index ) {

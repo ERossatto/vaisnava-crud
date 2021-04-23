@@ -3,15 +3,16 @@
 <!-- Sign up form -->
   <div>
     <button (click)="toggle.signUpPopUp = true">Sign up</button>
+    <button (click)="teste()">teste</button>
   </div>
 
-  <div class="popup" *ngIf="toggle">
+  <div class="popup" *ngIf="toggle.signUpPopUp">
 
     <button class="popup__close" (click)="toggle.signUpPopUp = false">x</button>
 
     <input type="text" id="firstname" class="form" placeholder="First name" required [(ngModel)]="user.firstName">
 
-    <input type="text" id="lastname" class="form" placeholder="Last name" required [(ngModel)]="user.lastName"> 
+    <input type="text" id="lastname" class="form" placeholder="Last name" required [(ngModel)]="user.lastName">
 
     <input type="text" id="email" class="form" placeholder="Email" required [(ngModel)]="user.email">
 
@@ -20,22 +21,23 @@
     <label class="form">Birthday</label>
     <input type="date" id="birthday" class="form" required [(ngModel)]="user.birthday">
 
-<!-- Selecting gender -->
-    <div class="genderForm" [(ngModel)]="user.gender">
+    <!-- Selecting gender -->
+    <div class="genderForm">
       <p class="genderForm">Gender</p>
 
       <label for="male">Male</label>
-      <input type="radio" name="radsex" id="male">
+      <input #male type="radio" name="radsex" (click)="fetchSelectedGender()">
 
       <label for="female">Female</label>
-      <input type="radio" name="radsex" id="female">
+      <input #female type="radio" name="radsex" (click)="fetchSelectedGender()">
 
       <label for="other">Other</label>
-      <input type="radio" name="radsex" id="other" (click)="toggle.otherGender = true"> <!-- onde esta declarado que nao é pra mostrar, ex: "hidden"? -->
-      <input type="text" placeholder="Type your gender" *ngIf="toggle.otherGender">
+      <input #other type="radio" name="radsex" (click)="fetchSelectedGender()"> <!-- onde esta declarado que nao é pra mostrar, ex: "hidden"? -->
+      <input type="text" placeholder="Type your gender" *ngIf="toggle.otherGender" [(ngModel)]="user.gender.otherDescription">
     </div>
 
-    <input type="submit" value="Se inscrever"> <!-- (ngSubmit)="formSubmit()" -->
+    <!-- <input type="submit" value="Se inscrever"> (ngSubmit)="formSubmit()" -->
+    <button (click)="userSignUp( user )">Sign Up</button>
 
   </div>
 

@@ -10,7 +10,7 @@
 
   <div class="homepage-buttons-box">
     <button class="homepage-buttons-box__button" (click)="toggle.createRegister = true">Register new devotee</button>
-    <button class="homepage-buttons-box__button" (click)="toggle.listRegister = true">Show registers</button>
+    <button class="homepage-buttons-box__button" (click)="toggle.registerList = true">Show registers</button>
   </div>
 
   <!-- Cadastrar novo devoto(a) -->
@@ -64,7 +64,7 @@
   </div>
 
   <!-- Exibir cadastros existentes -->
-  <div class="register-list" *ngIf="toggle.listRegister">
+  <div class="register-list" *ngIf="toggle.registerList">
 
     <div class="register-list__scrollbox">
       <div class="register-list__scrollbox__items" *ngFor="let item of dataBase; index as i">
@@ -90,7 +90,7 @@
     </div>
 
     <div class="popup-button-box">
-      <button class="popup-button-box__button" (click)="toggle.listRegister = false">Close</button>
+      <button class="popup-button-box__button" (click)="toggle.registerList = false">Close</button>
     </div>
   </div>
 

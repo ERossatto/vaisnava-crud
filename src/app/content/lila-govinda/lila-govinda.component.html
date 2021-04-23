@@ -1,55 +1,52 @@
-<!-- <body> -->
-  <section class="section">
+<section class="section">
 
-    <button (click)="toggle.register = true">Cadastrar</button>
+<!-- Sign up form -->
+  <div>
+    <button (click)="toggle.signUpPopUp = true">Sign up</button>
+  </div>
 
-    <div class="popup" *ngIf="toggle.register">
+  <div class="popup" *ngIf="toggle">
 
-      <button class="popup__close" (click)="toggle.register = false">x</button>
+    <button class="popup__close" (click)="toggle.signUpPopUp = false">x</button>
 
-      <label>Primeiro nome</label>
-      <input type="text" name="firstname" id="firstname" required>
+    <input type="text" id="firstname" class="form" placeholder="First name" required [(ngModel)]="user.firstName">
 
-      <label>Sobrenome</label>
-      <input type="text" name="lastname" id="lastname">
+    <input type="text" id="lastname" class="form" placeholder="Last name" required [(ngModel)]="user.lastName"> 
 
-      <label>Email</label>
-      <input type="text" name="email" id="email" required>
+    <input type="text" id="email" class="form" placeholder="Email" required [(ngModel)]="user.email">
 
-      <label>Senha</label>
-      <input type="password" name="pass" id="pass" minlength="8" required>
+    <input type="password" id="password" class="form" placeholder="New password" required [(ngModel)]="user.password">
 
-      <label>Aniversário</label>
-      <input type="date" name="birthday" id="birthday">
+    <label class="form">Birthday</label>
+    <input type="date" id="birthday" class="form" required [(ngModel)]="user.birthday">
 
-      <p>Gênero</p>
+<!-- Selecting gender -->
+    <div class="genderForm" [(ngModel)]="user.gender">
+      <p class="genderForm">Gender</p>
 
-      <div>
-        <label for="male">Masculino</label>
-        <input type="radio" name="radsex" id="male">
+      <label for="male">Male</label>
+      <input type="radio" name="radsex" id="male">
 
-        <label for="female">Feminino</label>
-        <input type="radio" name="radsex" id="female">
+      <label for="female">Female</label>
+      <input type="radio" name="radsex" id="female">
 
-        <label for="other">Outro</label>
-        <input type="radio" name="radsex" id="other" (click)="toggle.othersDescription = true">
-        <input type="text" placeholder="descricao" *ngIf="toggle.othersDescription">
-
-      </div>
-
-      <input type="submit" value="Se inscrever">
-
+      <label for="other">Other</label>
+      <input type="radio" name="radsex" id="other" (click)="toggle.otherGender = true"> <!-- onde esta declarado que nao é pra mostrar, ex: "hidden"? -->
+      <input type="text" placeholder="Type your gender" *ngIf="toggle.otherGender">
     </div>
 
-    <!-- <div style="height: 25rem; background-color: blue;">
-      <ul *ngFor="let item of mockDataBase">
-        <li>
-          {{ item }}
-        </li>
-        <button>delete</button>
-        <button>update</button>
-      </ul>
-    </div> -->
+    <input type="submit" value="Se inscrever"> <!-- (ngSubmit)="formSubmit()" -->
 
-  </section>
-<!-- </body> -->
+  </div>
+
+<!-- <div style="height: 25rem; background-color: blue;">
+  <ul *ngFor="let item of mockDataBase">
+    <li>
+      {{ item }}
+    </li>
+    <button>delete</button>
+    <button>update</button>
+  </ul>
+</div> -->
+
+</section>

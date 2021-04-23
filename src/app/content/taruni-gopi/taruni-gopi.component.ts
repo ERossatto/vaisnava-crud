@@ -41,24 +41,24 @@ export class TaruniGopiComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  devoteeReset() {
-    this.devotee.spiritualName = undefined;
-    this.devotee.socialName = undefined;
-    this.devotee.adress.city = undefined;
-    this.devotee.adress.state = undefined;
-    this.devotee.adress.country = undefined;
-    this.devotee.contact.phone = undefined;
-    this.devotee.contact.email = undefined;
-    this.devotee.dateOfBirth = undefined;
-    this.devotee.dateOfInitiation = undefined;
-  }
+  //devoteeReset() {
+  //  this.devotee.spiritualName = undefined;
+  //  this.devotee.socialName = undefined;
+  //  this.devotee.adress.city = undefined;
+  //  this.devotee.adress.state = undefined;
+  //  this.devotee.adress.country = undefined;
+  //  this.devotee.contact.phone = undefined;
+  //  this.devotee.contact.email = undefined;
+  //  this.devotee.dateOfBirth = undefined;
+  //  this.devotee.dateOfInitiation = undefined;
+  //}
 
   createRegister() {
     this.dataBase.push({...this.devotee});
     this.toggle.createRegister = false;
     this.toggle.registerConfirmation = true;
 
-    this.devoteeReset()
+    //this.devoteeReset()   
   }
 
   updateRegister() {

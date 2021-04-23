@@ -64,10 +64,10 @@
   </div>
 
   <!-- Exibir cadastros existentes -->
-  <div class="show-registers" *ngIf="toggle.listRegister">
+  <div class="register-list" *ngIf="toggle.listRegister">
 
-    <div class="show-registers__scrollbox">
-      <div class="show-registers__scrollbox__items" *ngFor="let item of dataBase; index as i">
+    <div class="register-list__scrollbox">
+      <div class="register-list__scrollbox__items" *ngFor="let item of dataBase; index as i">
           <p>
             <span style="font-weight: bold;">{{item.spiritualName}}</span> | {{item.socialName}} | {{item.adress.city}}, {{item.adress.state}}, {{item.adress.country}} | {{item.contact.phone}} | {{item.contact.email}} |  Date of birth: {{item.dateOfBirth}} | Date of initiation: {{item.dateOfInitiation}}
           </p>
@@ -79,7 +79,6 @@
       </div>
 
       <!-- Pop-up de confirmação do exclusão -->
-      <!-- passei o popup para fora do ngFor -->
       <div class="register-confirmation" *ngIf="toggle.deleteConfirmation">
         <p>Are you sure you want to delete this registration?</p>
 

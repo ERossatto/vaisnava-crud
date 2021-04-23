@@ -1,10 +1,45 @@
 @import "~variables.scss";
 
-.section {
+.div {
   height: $height-less-header;
   width: 100vw;
+}
+
+.section {
+  background: #9A88FF;
+  height: $height-less-header;
 
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.popup {
+  position: absolute;
+
+  font: bold;
+  height: 20rem;
+  background: #D77AFF;
+  border-radius: 10px;
+  padding: 15px;
+  width: 500px;
+  // margin: auto;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.500);
+  padding: 42px;
+
+  // display: grid;
+  // justify-content:space-around;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  &__close {
+    position: relative;
+
+    align-self: flex-end;
+    top: -40px;
+    right: -33px;
+  }
 }

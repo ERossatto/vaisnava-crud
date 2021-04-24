@@ -12,7 +12,7 @@ export class TaruniGopiComponent implements OnInit {
   toggle = {
     createRegister: false,
     registerConfirmation: false,
-    registerList: false,
+    readRegister: false,
     deleteConfirmation: false,
   };
 

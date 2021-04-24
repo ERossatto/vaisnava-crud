@@ -10,32 +10,32 @@
 
   <div class="homepage-buttons-box">
     <button class="homepage-buttons-box__button" (click)="toggle.createRegister = true; toggle.registerConfirmation = false">Register new devotee</button>
-    <button class="homepage-buttons-box__button" (click)="toggle.registerList = true; toggle.registerConfirmation = false">Show registers</button>
+    <button class="homepage-buttons-box__button" (click)="toggle.readRegister = true; toggle.registerConfirmation = false">Show registers</button>
   </div>
 
   <!-- Cadastrar novo devoto(a) -->
-  <div class="create-register" *ngIf="toggle.createRegister">
+  <div class="popup-bg" *ngIf="toggle.createRegister">
 
-    <label class="create-register__label">Spiritual name</label>
-    <input type="text" class="create-register__input" [(ngModel)]="devotee.spiritualName">
+    <label class="popup-bg__label">Spiritual name</label>
+    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.spiritualName">
 
-    <label class="create-register__label">Social name</label>
-    <input type="text" class="create-register__input" [(ngModel)]="devotee.socialName">
+    <label class="popup-bg__label">Social name</label>
+    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.socialName">
 
-    <label class="create-register__label">City</label>
-    <input type="text" class="create-register__input" [(ngModel)]="devotee.adress.city">
+    <label class="popup-bg__label">City</label>
+    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.city">
 
-    <label class="create-register__label">State</label>
-    <input type="text" class="create-register__input" [(ngModel)]="devotee.adress.state">
+    <label class="popup-bg__label">State</label>
+    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.state">
 
-    <label class="create-register__label">Country</label>
-    <input type="text" class="create-register__input" [(ngModel)]="devotee.adress.country">
+    <label class="popup-bg__label">Country</label>
+    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.country">
 
-    <label class="create-register__label">Phone number</label>
-    <input type="number" class="create-register__input" [(ngModel)]="devotee.contact.phone">
+    <label class="popup-bg__label">Phone number</label>
+    <input type="number" class="popup-bg__input" [(ngModel)]="devotee.contact.phone">
 
-    <label class="create-register__label">E-mail</label>
-    <input type="text" class="create-register__input" [(ngModel)]="devotee.contact.email">
+    <label class="popup-bg__label">E-mail</label>
+    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.contact.email">
 
     <div class="input-container">
       <div class="input-container__box">
@@ -64,10 +64,10 @@
   </div>
 
   <!-- Exibir cadastros existentes -->
-  <div class="register-list" *ngIf="toggle.registerList">
+  <div class="popup-bg" *ngIf="toggle.readRegister">
 
-    <div class="register-list__scrollbox">
-      <div class="register-list__scrollbox__items" *ngFor="let item of dataBase; index as i">
+    <div class="popup-bg__scrollbox">
+      <div class="popup-bg__scrollbox__items" *ngFor="let item of dataBase; index as i">
           <p>
             <span style="font-weight: bold;">
               {{item.spiritualName}}
@@ -98,7 +98,7 @@
     </div>
 
     <div class="popup-button-box">
-      <button class="popup-button-box__button" (click)="toggle.registerList = false; toggle.deleteConfirmation = false">Close</button>
+      <button class="popup-button-box__button" (click)="toggle.readRegister = false; toggle.deleteConfirmation = false">Close</button>
     </div>
   </div>
 

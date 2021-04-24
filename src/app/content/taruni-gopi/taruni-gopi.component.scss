@@ -50,7 +50,7 @@ button:hover {
   }
 }
 
-.create-register {
+.popup-bg {
   background-color: #ffffff;
   position: absolute;
   top: calc(3% + #{$header-height});
@@ -80,27 +80,12 @@ button:hover {
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
   }
-}
-
-.register-list {
-  background-color: #ffffff;
-  position: absolute;
-  top: calc(3% + #{$header-height});
-  width: 580px;
-  height: 480px;
-  border-radius: 3px;
-  padding: 30px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.219);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   &__scrollbox {
     background-color: #fde4bf;
-    width: 550px;
+    width: 400px;
     height: 400px;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 20px;
     overflow: auto;
 

@@ -1,3 +1,4 @@
+import { compileNgModule } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LilaGovindaComponent implements OnInit {
 
+  // variaveis aqui
+
+  dataBase = [];
+
+  mockDataBase = ['um', 'dois', ' tres', 'quatro', 'cinco', 'seis'];
+
+  toggle = {
+    signUpPopUp: false,
+    otherGender: false
+  }
+
+  user = {
+    firstName: undefined,
+    lastName: undefined,
+    email: undefined,
+    password: undefined,
+    birthday: undefined,
+    gender: undefined,
+  }
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  }
+
+  // metodos (funções) aqui
+
+  userSignUp() {
+  this.dataBase.push({...this.user});
+  }
+
+  formSubmit() {
+    console.log(this.dataBase)
   }
 
 }

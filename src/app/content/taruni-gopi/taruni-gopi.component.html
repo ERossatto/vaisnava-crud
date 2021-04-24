@@ -49,7 +49,7 @@
     </div>
 
     <div class="popup-button-box">
-      <button class="popup-button-box__button" (click)="createRegister()">Register</button>
+      <button class="popup-button-box__button" (click)="createRegister(devotee)">Register</button>
       <button class="popup-button-box__button" (click)="toggle.createRegister = false">Cancel</button>
     </div>
   </div>
@@ -69,7 +69,15 @@
     <div class="register-list__scrollbox">
       <div class="register-list__scrollbox__items" *ngFor="let item of dataBase; index as i">
           <p>
-            <span style="font-weight: bold;">{{item.spiritualName}}</span> | {{item.socialName}} | {{item.adress.city}}, {{item.adress.state}}, {{item.adress.country}} | {{item.contact.phone}} | {{item.contact.email}} |  Date of birth: {{item.dateOfBirth}} | Date of initiation: {{item.dateOfInitiation}}
+            <span style="font-weight: bold;">
+              {{item.spiritualName}}
+            </span>
+            | {{item.socialName}}
+            | {{item.adress.city}}, {{item.adress.state}}, {{item.adress.country}}
+            | {{item.contact.phone}}
+            | {{item.contact.email}}
+            | Date of birth: {{item.dateOfBirth}}
+            | Date of initiation: {{item.dateOfInitiation}}
           </p>
 
           <div class="popup-button-box">

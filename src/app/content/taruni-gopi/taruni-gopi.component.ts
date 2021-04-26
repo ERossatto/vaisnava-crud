@@ -13,6 +13,8 @@ export class TaruniGopiComponent implements OnInit {
     createRegister: false,
     registerConfirmation: false,
     readRegister: false,
+    updateRegister: false,
+    updateConfirmation: false,
     deleteConfirmation: false,
   };
 
@@ -30,6 +32,11 @@ export class TaruniGopiComponent implements OnInit {
     },
     dateOfBirth: undefined,
     dateOfInitiation: undefined,
+  };
+
+  itemToUpdate = {
+    item: undefined,
+    index: undefined,
   };
 
   itemToDelete = {
@@ -65,7 +72,18 @@ export class TaruniGopiComponent implements OnInit {
     this.devoteeReset();
   }
 
+  openUpdatePopup(item, index) {
+    this.toggle.updateRegister = true;
+
+    this.itemToUpdate.item = item;
+    this.itemToUpdate.index = index;
+  }
+
   updateRegister() {
+    this.dataBase[this.itemToUpdate.index] = this.itemToUpdate.item;
+
+    this.toggle.updateRegister = false;
+    this.toggle.updateConfirmation = true;
   }
 
   confirmDelete( index ) {

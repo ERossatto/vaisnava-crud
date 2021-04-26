@@ -81,7 +81,6 @@ export class TaruniGopiComponent implements OnInit {
   updateRegister() {
     this.dataBase[this.itemToUpdate.index] = this.itemToUpdate.item;
 
-    this.toggle.updateRegister = false;
     this.toggle.updateConfirmation = true;
   }
 

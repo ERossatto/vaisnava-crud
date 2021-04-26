@@ -150,7 +150,7 @@
     <div class="confirmation-popup" *ngIf="toggle.updateConfirmation">
       <p>Devotee successfully updated!</p>
       <div class="popup-button-box">
-        <button class="popup-button-box__button" (click)="toggle.updateConfirmation = false">OK</button>
+        <button class="popup-button-box__button" (click)="toggle.updateConfirmation = false; toggle.updateRegister = false">OK</button>
       </div>
     </div>
   </div>

@@ -6,10 +6,10 @@
     <div class="register">
       <label class="label">Nome completo:</label>
       <input type="text" [(ngModel)]="doctor.name" class="input">
-      
+
       <label class="label">CRM:</label>
       <input type="number" [(ngModel)]="doctor.crm" class="input">
-      
+
       <label class="label">Especialização:</label>
       <select class="specialization" [(ngModel)]="doctor.specialization">
       <option value="" disabled selected hidden>Selecione sua especialização</option>
@@ -18,19 +18,33 @@
       <option value="">PEDIATRIA</option>
       <option value="">CIRURGIA PLASTICA</option>
       </select>
-      
+
       <label class="label">Email:</label>
       <input type="text" [(ngModel)]="doctor.email" class="input">
-      
+
       <label class="label">Telefone:</label>
       <input type="number" [(ngModel)]="doctor.phone" class="input">
-      
-      <button class="registrationButtton" (click)="create()">Cadastrar</button>
+
+      <button class="registrationButtton" (click)="create(doctor)">Cadastrar</button>
     </div>
 
     <div class="images">
       <img src="../../../assets/tulasi/medica.jpg" alt="medica">
     </div>
+  </div>
+
+  <div>
+    <ul *ngFor="let item of dataBase">
+      <li>
+        {{item.name}} |
+        {{item.crm}} |
+        {{item.specialization}} |
+        {{item.email}} |
+        {{item.phone}} |
+      </li>
+      <button>Update</button>
+      <button>Delete</button>
+    </ul>
   </div>
 
 </section>

@@ -1,5 +1,101 @@
-<section class="section">taruni-gopi works!
+<section class="section">
 
-  <!-- escrever seu codigo aqui -->
+  <!-- CRUD: create, read, update and delete a register. -->
+
+  <div class="homepage-image">
+    <img src="../../../assets/taruni-gopi/guru-notes-logo.png" alt="logo">
+  </div>
+
+  <!-- Botões da página inicial -->
+
+  <div class="homepage-buttons-box">
+    <button class="homepage-buttons-box__button" (click)="toggleOpenCreateRegister = true">Register new devotee</button>
+    <button class="homepage-buttons-box__button" (click)="toggleOpenShowRegisters = true">Show registers</button>
+  </div>
+
+  <!-- Cadastrar novo devoto(a) -->
+  <div class="create-register" *ngIf="toggleOpenCreateRegister">
+
+    <label class="create-register__label">Spiritual name</label>
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.spiritualName">
+
+    <label class="create-register__label">Social name</label>
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.socialName">
+
+    <label class="create-register__label">City</label>
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.adress.city">
+
+    <label class="create-register__label">State</label>
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.adress.state">
+
+    <label class="create-register__label">Country</label>
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.adress.country">
+
+    <label class="create-register__label">Phone number</label>
+    <input type="number" class="create-register__input" [(ngModel)]="devotee.contact.phone">
+
+    <label class="create-register__label">E-mail</label>
+    <input type="text" class="create-register__input" [(ngModel)]="devotee.contact.email">
+
+    <div class="input-container">
+      <div class="input-container__box">
+          <label class="input-container__label">Date of birth</label>
+          <input type="date" style="width: 130px;" class="input-box" [(ngModel)]="devotee.dateOfBirth">
+      </div>
+      <div class="input-container__box">
+          <label class="input-container__label">Date of initiation</label>
+          <input type="date" style="width: 130px;" class="input-box" [(ngModel)]="devotee.dateOfInitiation">
+      </div>
+    </div>
+
+    <div class="popup-button-box">
+      <button class="popup-button-box__button" (click)="createRegister()">Register</button>
+      <button class="popup-button-box__button" (click)="toggleOpenCreateRegister = false">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Pop-up de confirmação do cadastro -->
+  <div class="register-confirmation" *ngIf="toggleOpenRegisterConfirmation">
+    <p>Devotee successfully registered!</p>
+
+    <div class="popup-button-box">
+      <button class="popup-button-box__button" (click)="toggleOpenRegisterConfirmation = false">OK</button>
+    </div>
+  </div>
+
+  <!-- Exibir cadastros existentes -->
+  <div class="show-registers" *ngIf="toggleOpenShowRegisters">
+
+    <div class="show-registers__scrollbox">
+      <div class="show-registers__scrollbox__items" *ngFor="let item of dataBase; index as i">
+          <p>
+            <span style="font-weight: bold;">{{item.spiritualName}}</span> | {{item.socialName}} | {{item.adress.city}}, {{item.adress.state}}, {{item.adress.country}} | {{item.contact.phone}} | {{item.contact.email}} |  Date of birth: {{item.dateOfBirth}} | Date of initiation: {{item.dateOfInitiation}}
+          </p>
+
+          <div class="popup-button-box">
+            <button class="popup-button-box__button" (click)="updateRegister()">Update</button>
+            <button class="popup-button-box__button" (click)="confirmDelete( item, index )">Delete</button>
+          </div>
+
+      </div>
+
+      <!-- Pop-up de confirmação do exclusão -->
+      <!-- passei o popup para fora do ngFor -->
+      <div class="register-confirmation" *ngIf="toggleOpenDeleteConfirmation">
+        <p>Are you sure you want to delete this registration?</p>
+
+        <div class="popup-button-box">
+          <button class="popup-button-box__button" (click)="deleteRegister(itemToDelete.index)">Delete</button>
+          <button class="popup-button-box__button" (click)="toggleOpenDeleteConfirmation = false">Cancel</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="popup-button-box">
+      <button class="popup-button-box__button" (click)="toggleOpenShowRegisters = false">Close</button>
+    </div>
+
+  </div>
 
 </section>

@@ -28,13 +28,51 @@ export class GovindaDasComponent implements OnInit {
 
   shakeTest = false;
 
+  errorMsg = {
+    hasntName: '',
+    hasntAtk: '',
+    hasntDef: '',
+    hasntElement: ''
+  };
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  checkError() {
+
+    const hasntName = !this.pokemon.name;
+    const hasntAtk = !this.pokemon.atk;
+    const hasntDef = !this.pokemon.def;
+    const hasntElement = !this.pokemon.element;
+
+    if (hasntName) this.errorMsg.hasntName = 'O pokemon precisa ter um nome treinador!';
+    else this.errorMsg.hasntName = '';
+
+    if (hasntAtk) this.errorMsg.hasntAtk = 'O pokemon precisa ter ataque treinador!';
+    else this.errorMsg.hasntAtk = '';
+
+    if (hasntDef) this.errorMsg.hasntDef = 'O pokemon precisa ter defesa treinador!';
+    else this.errorMsg.hasntDef = '';
+
+    if (hasntElement) this.errorMsg.hasntElement = 'O pokemon precisa ter um elemento treinador!';
+    else this.errorMsg.hasntElement = '';
+
+    const out = (
+      hasntName ||
+      hasntAtk ||
+      hasntDef ||
+      hasntElement
+    );
+
+    return out;
+  }
+
   create() {
-    this.dataBase.push( Object.assign( {}, this.pokemon ) );
+    if (this.checkError()) return;
+
+    this.dataBase.push( {...this.pokemon} );
 
     this.clearForm();
 

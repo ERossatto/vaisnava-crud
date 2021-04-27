@@ -32,6 +32,8 @@ export class LilaGovindaComponent implements OnInit {
   // metodos (funções) aqui
 
   userSignUp() {
+  this.toggleSignUpPopUp = false;
+  
   this.dataBase.push({...this.user});
   }
 

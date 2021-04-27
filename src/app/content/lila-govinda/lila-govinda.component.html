@@ -2,7 +2,7 @@
 
 <!-- Sign up form -->
   <div>
-    <button (click)="toggleSignUpPopUp = true">Sign up</button>
+    <button (click)="toggle.signUpPopUp = true">Sign up</button>
   </div>
 
   <div class="popup" *ngIf="toggleSignUpPopUp">
@@ -14,19 +14,22 @@
     <label class="form">Birthday</label>
     <input type="date" id="birthday" class="form" required [(ngModel)]="user.birthday">
 
-<!-- Selecting gender -->
-    <div class="genderForm" [(ngModel)]="user.gender">
+    <!-- Selecting gender -->
+    <div class="genderForm">
       <p class="genderForm">Gender</p>
       <label for="male">Male</label>
-      <input type="radio" name="radsex" id="male">
+      <input #male type="radio" name="radsex" (click)="fetchSelectedGender()">
+
       <label for="female">Female</label>
-      <input type="radio" name="radsex" id="female">
+      <input #female type="radio" name="radsex" (click)="fetchSelectedGender()">
+
       <label for="other">Other</label>
-      <input type="radio" name="radsex" id="other" (click)="toggleOtherGender = true">
-      <input type="text" placeholder="Type your gender" *ngIf="toggleOtherGender">
+      <input #other type="radio" name="radsex" (click)="fetchSelectedGender()">
+      <input type="text" placeholder="Type your gender" *ngIf="toggle.otherGender" [(ngModel)]="user.gender.otherDescription">
     </div>
 
-    <button type="submit" (click)="toggleSignUpPopUp = false">Sign up</button>
+    <button (click)="userSignUp( user )">Sign Up</button>
+
   </div>
 
 <!-- <div style="height: 25rem; background-color: blue;">

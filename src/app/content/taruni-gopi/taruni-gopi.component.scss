@@ -20,6 +20,12 @@ button:hover {
   background-color: #fa7d4b;
 }
 
+input {
+  border: 1px solid #3d311b4b;
+  height: 25px;
+  cursor: text;
+}
+
 .section {
   background-image: url(../../../assets/taruni-gopi/background.jpg);
 
@@ -76,18 +82,19 @@ button:hover {
     margin-bottom: 15px;
     margin-top: 5px;
     outline: none;
+    border: 1px solid #3d311b4b;
 
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
   }
 
   &__scrollbox {
-    background-color: #fde4bf;
-    width: 400px;
-    height: 400px;
+    background-color: lightgoldenrodyellow;
+    width: 420px;
+    height: 500px;
     border-radius: 5px;
-    padding: 20px;
     overflow: auto;
+    padding: 10px;
 
     text-align: left;
     font-size: 12px;
@@ -95,11 +102,14 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: left;
+    align-items: center;
 
     &__items {
       background-color: white;
+      border: 1px solid #3d311b36;
+      width: 370px;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: 2px;
       margin-bottom: 10px;
     }
   }
@@ -134,7 +144,7 @@ button:hover {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
 
@@ -157,6 +167,14 @@ button:hover {
   align-items: center;
 
   background-color: #2523233a;
+}
+
+.read-register-button {
+  position: relative;
+  top: -493px;
+  right: -254px;
+  width: 30px;
+  height: 30px;
 }
 
 .confirmation-popup {

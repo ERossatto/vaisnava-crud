@@ -66,6 +66,7 @@ export class TaruniGopiComponent implements OnInit {
 
     this.dataBase.push(parsedDevotee);
 
+    this.toggle.createRegister = false;
     this.toggle.registerConfirmation = true;
 
     this.devoteeReset();
@@ -81,6 +82,7 @@ export class TaruniGopiComponent implements OnInit {
   updateRegister() {
     this.dataBase[this.itemToUpdate.index] = this.itemToUpdate.item;
 
+    this.toggle.updateRegister = false;
     this.toggle.updateConfirmation = true;
   }
 

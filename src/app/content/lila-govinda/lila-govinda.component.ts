@@ -1,4 +1,3 @@
-import { compileNgModule } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,15 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class LilaGovindaComponent implements OnInit {
 
   // variaveis aqui
+  toggleSignUpPopUp = false;
+  toggleOtherGender = false;
 
   dataBase = [];
 
-  mockDataBase = ['um', 'dois', ' tres', 'quatro', 'cinco', 'seis'];
-
-  toggle = {
-    signUpPopUp: false,
-    otherGender: false
-  }
+  // mockDataBase = ['um', 'dois', ' tres', 'quatro', 'cinco', 'seis'];
 
   user = {
     firstName: undefined,

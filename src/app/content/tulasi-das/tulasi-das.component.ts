@@ -7,9 +7,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TulasiDasComponent implements OnInit {
 
+dataBase = [];
+
+  toggle = {
+  create: false,
+  update: false,
+};
+
+  doctor = { 
+  
+  name: undefined,
+  crm: undefined,
+  specialization: undefined,
+  email: undefined,
+  phone: undefined,
+};
+
+
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  }
+
+  create() {
+    this.dataBase.push( Object.assign( {}, this.doctor ) );
+    this.clearForm();
+    this.toggle.create = false;
+    console.log( this.doctor)
+  }
+
+  clearForm() {
+    this.doctor.name = undefined;
+    this.doctor.crm = undefined;
+    this.doctor.specialization = undefined;
+    this.doctor.email = undefined;
+    this.doctor.phone = undefined;
   }
 
 }

@@ -32,14 +32,22 @@
 
   </div>
 
-<!-- <div style="height: 25rem; background-color: blue;">
-  <ul *ngFor="let item of mockDataBase">
-    <li>
-      {{ item }}
-    </li>
-    <button>delete</button>
-    <button>update</button>
-  </ul>
-</div> -->
+  <!-- esboco para lista de pessoas -->
+  <div style="height: 25rem; background-color: blue;">
+    <ul *ngFor="let item of dataBase">
+      <li>
+        {{item.firstName}} |
+        {{item.lastName}} |
+        {{item.email}} |
+        {{item.birthday}} |
+        {{(item.gender.male) ? 'male |' : ''}}
+        {{(item.gender.female) ? 'female |' : ''}}
+        {{(item.gender.other) ? 'other |' : ''}}
+        {{item.gender.otherDescription}}
+      </li>
+      <button>delete</button>
+      <button>update</button>
+    </ul>
+  </div>
 
 </section>

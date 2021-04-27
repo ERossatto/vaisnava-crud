@@ -8,8 +8,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class LilaGovindaComponent implements OnInit {
 
   // variaveis aqui
-  toggleSignUpPopUp = false;
-  toggleOtherGender = false;
+  // toggleSignUpPopUp = false;
+  // toggleOtherGender = false;
 
   dataBase = [];
 

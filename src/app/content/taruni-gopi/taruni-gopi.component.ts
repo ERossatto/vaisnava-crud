@@ -43,9 +43,87 @@ export class TaruniGopiComponent implements OnInit {
     index: undefined,
   };
 
+  errorMsg = {
+    hasSpiritualName: '',
+    hasSocialName: '',
+    hasCity: '',
+    hasState: '',
+    hasCountry: '',
+    hasPhone: '',
+    hasEmail: '',
+    hasDateOfBirth: '',
+    hasDateOfInitiation: ''
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  checkError() {
+    const hasSpiritualName = !!this.devotee.spiritualName;
+    const hasSocialName = !!this.devotee.socialName;
+    const hasCity = !!this.devotee.adress.city;
+    const hasState = !!this.devotee.adress.state;
+    const hasCountry = !!this.devotee.adress.country;
+    const hasPhone = !!this.devotee.contact.phone;
+    const hasEmail = !!this.devotee.contact.email;
+    const hasDateOfBirth = !!this.devotee.dateOfBirth;
+    const hasDateOfInitiation = !!this.devotee.dateOfInitiation;
+
+    if (hasSpiritualName == false) this.errorMsg.hasSpiritualName = '* (required)';
+    else this.errorMsg.hasSpiritualName = '';
+
+    if (hasSocialName == false) this.errorMsg.hasSocialName = '* (required)';
+    else this.errorMsg.hasSocialName = '';
+
+    if (hasCity == false) this.errorMsg.hasCity = '* (required)';
+    else this.errorMsg.hasCity = '';
+
+    if (hasState == false) this.errorMsg.hasState = '* (required)';
+    else this.errorMsg.hasState = '';
+
+    if (hasCountry == false) this.errorMsg.hasCountry = '* (required)';
+    else this.errorMsg.hasCountry = '';
+
+    if (hasPhone == false) this.errorMsg.hasPhone = '* (required)';
+    else this.errorMsg.hasPhone = '';
+
+    if (hasEmail == false) this.errorMsg.hasEmail = '* (required)';
+    else this.errorMsg.hasEmail = '';
+
+    if (hasDateOfBirth == false) this.errorMsg.hasDateOfBirth = '* (required)';
+    else this.errorMsg.hasDateOfBirth = '';
+
+    if (hasDateOfInitiation == false) this.errorMsg.hasDateOfInitiation = '* (required)';
+    else this.errorMsg.hasDateOfInitiation = '';
+
+    const out = (
+      hasSpiritualName &&
+      hasSocialName &&
+      hasCity &&
+      hasState &&
+      hasCountry &&
+      hasPhone &&
+      hasEmail &&
+      hasDateOfBirth &&
+      hasDateOfInitiation
+    );
+
+    return !out;
+  }
+
+  createRegister( devotee ) {
+    if (this.checkError()) return;
+
+    const parsedDevotee = JSON.parse(JSON.stringify(devotee));
+
+    this.dataBase.push(parsedDevotee);
+
+    this.toggle.createRegister = false;
+    this.toggle.registerConfirmation = true;
+
+    this.devoteeReset();
   }
 
   devoteeReset() {
@@ -58,18 +136,6 @@ export class TaruniGopiComponent implements OnInit {
     this.devotee.contact.email = undefined;
     this.devotee.dateOfBirth = undefined;
     this.devotee.dateOfInitiation = undefined;
-  }
-
-  createRegister( devotee ) {
-
-    const parsedDevotee = JSON.parse(JSON.stringify(devotee));
-
-    this.dataBase.push(parsedDevotee);
-
-    this.toggle.createRegister = false;
-    this.toggle.registerConfirmation = true;
-
-    this.devoteeReset();
   }
 
   openUpdatePopup(item, index) {

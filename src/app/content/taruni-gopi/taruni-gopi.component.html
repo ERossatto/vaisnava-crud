@@ -16,34 +16,70 @@
   <!-- Cadastrar novo devoto(a) -->
   <div class="popup-bg" *ngIf="toggle.createRegister">
 
-    <label class="popup-bg__label">Spiritual name</label>
+    <label class="popup-bg__label">Spiritual name
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasSpiritualName.length > 0">
+        {{errorMsg.hasSpiritualName}}
+      </span>
+    </label>
     <input type="text" class="popup-bg__input" [(ngModel)]="devotee.spiritualName" maxlength="30">
 
-    <label class="popup-bg__label">Social name</label>
+    <label class="popup-bg__label">Social name
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasSocialName.length > 0">
+        {{errorMsg.hasSocialName}}
+      </span>
+    </label>
     <input type="text" class="popup-bg__input" [(ngModel)]="devotee.socialName" maxlength="50">
 
-    <label class="popup-bg__label">City</label>
+    <label class="popup-bg__label">City
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasCity.length > 0">
+        {{errorMsg.hasCity}}
+      </span>
+    </label>
     <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.city" maxlength="50">
 
-    <label class="popup-bg__label">State</label>
+    <label class="popup-bg__label">State
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasState.length > 0">
+        {{errorMsg.hasState}}
+      </span>
+    </label>
     <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.state" maxlength="30">
 
-    <label class="popup-bg__label">Country</label>
+    <label class="popup-bg__label">Country
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasCountry.length > 0">
+        {{errorMsg.hasCountry}}
+      </span>
+    </label>
     <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.country" maxlength="30">
 
-    <label class="popup-bg__label">Phone number</label>
+    <label class="popup-bg__label">Phone number
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasPhone.length > 0">
+        {{errorMsg.hasPhone}}
+      </span>
+    </label>
     <input type="tel" class="popup-bg__input" [(ngModel)]="devotee.contact.phone" maxlength="20">
 
-    <label class="popup-bg__label">E-mail</label>
+    <label class="popup-bg__label">E-mail
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasEmail.length > 0">
+        {{errorMsg.hasEmail}}
+      </span>
+    </label>
     <input type="email" class="popup-bg__input" [(ngModel)]="devotee.contact.email" maxlength="40">
 
     <div class="input-container">
       <div class="input-container__box">
-          <label class="input-container__label">Date of birth</label>
+          <label class="input-container__label">Date of birth
+            <span class="popup-bg__error-msg" *ngIf="errorMsg.hasDateOfBirth.length > 0">
+              {{errorMsg.hasDateOfBirth}}
+            </span>
+          </label>
           <input type="date" style="width: 130px;" class="input-box" [(ngModel)]="devotee.dateOfBirth">
       </div>
       <div class="input-container__box">
-          <label class="input-container__label">Date of initiation</label>
+          <label class="input-container__label">Date of initiation
+            <span class="popup-bg__error-msg" *ngIf="errorMsg.hasDateOfInitiation.length > 0">
+              {{errorMsg.hasDateOfInitiation}}
+            </span>
+          </label>
           <input type="date" style="width: 130px;" class="input-box" [(ngModel)]="devotee.dateOfInitiation">
       </div>
     </div>
@@ -107,34 +143,70 @@
 
   <div class="popup-bg" *ngIf="toggle.updateRegister">
     
-    <label class="popup-bg__label">Spiritual name</label>
+    <label class="popup-bg__label">Spiritual name
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasSpiritualName.length > 0">
+        {{errorMsg.hasSpiritualName}}
+      </span>
+    </label>
     <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.spiritualName" maxlength="30">
 
-    <label class="popup-bg__label">Social name</label>
+    <label class="popup-bg__label">Social name
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasSocialName.length > 0">
+        {{errorMsg.hasSocialName}}
+      </span>
+    </label>
     <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.socialName" maxlength="50">
 
-    <label class="popup-bg__label">City</label>
+    <label class="popup-bg__label">City
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasCity.length > 0">
+        {{errorMsg.hasCity}}
+      </span>
+    </label>
     <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.adress.city" maxlength="50">
 
-    <label class="popup-bg__label">State</label>
+    <label class="popup-bg__label">State
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasState.length > 0">
+        {{errorMsg.hasState}}
+      </span>
+    </label>
     <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.adress.state" maxlength="30">
 
-    <label class="popup-bg__label">Country</label>
+    <label class="popup-bg__label">Country
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasCountry.length > 0">
+        {{errorMsg.hasCountry}}
+      </span>
+    </label>
     <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.adress.country" maxlength="30">
 
-    <label class="popup-bg__label">Phone number</label>
+    <label class="popup-bg__label">Phone number
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasPhone.length > 0">
+        {{errorMsg.hasPhone}}
+      </span>
+    </label>
     <input type="tel" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.contact.phone" maxlength="20">
 
-    <label class="popup-bg__label">E-mail</label>
+    <label class="popup-bg__label">E-mail
+      <span class="popup-bg__error-msg" *ngIf="errorMsg.hasEmail.length > 0">
+        {{errorMsg.hasEmail}}
+      </span>
+    </label>
     <input type="email" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.contact.email" maxlength="40">
 
     <div class="input-container">
       <div class="input-container__box">
-          <label class="input-container__label">Date of birth</label>
+          <label class="input-container__label">Date of birth
+            <span class="popup-bg__error-msg" *ngIf="errorMsg.hasDateOfBirth.length > 0">
+              {{errorMsg.hasDateOfBirth}}
+            </span>
+          </label>
           <input type="date" style="width: 130px;" class="input-box" [(ngModel)]="itemToUpdate.item.dateOfBirth">
       </div>
       <div class="input-container__box">
-          <label class="input-container__label">Date of initiation</label>
+          <label class="input-container__label">Date of initiation
+            <span class="popup-bg__error-msg" *ngIf="errorMsg.hasDateOfInitiation.length > 0">
+              {{errorMsg.hasDateOfInitiation}}
+            </span>
+          </label>
           <input type="date" style="width: 130px;" class="input-box" [(ngModel)]="itemToUpdate.item.dateOfInitiation">
       </div>
     </div>

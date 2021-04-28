@@ -76,6 +76,13 @@ input {
     font-family: 'Roboto', sans-serif;
   }
 
+  &__error-msg {
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    color: red;
+    font-weight: bold;
+  }
+
   &__input {
     width: 445px;
     height: 25px;

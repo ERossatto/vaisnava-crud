@@ -17,7 +17,7 @@
 .popup {
   position: absolute;
 
-  font: bold;
+  // font: bold;
   height: 20rem;
   background: #D77AFF;
   border-radius: 10px;
@@ -41,5 +41,12 @@
     align-self: flex-end;
     top: -40px;
     right: -33px;
+  }
+
+  .form {
+  }
+  ::-webkit-input-placeholder {
+    color: red;
+    text-align: center;
   }
 }

@@ -17,25 +17,25 @@
   <div class="popup-bg" *ngIf="toggle.createRegister">
 
     <label class="popup-bg__label">Spiritual name</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.spiritualName">
+    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.spiritualName" maxlength="30">
 
     <label class="popup-bg__label">Social name</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.socialName">
+    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.socialName" maxlength="50">
 
     <label class="popup-bg__label">City</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.city">
+    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.city" maxlength="50">
 
     <label class="popup-bg__label">State</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.state">
+    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.state" maxlength="30">
 
     <label class="popup-bg__label">Country</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.country">
+    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.adress.country" maxlength="30">
 
     <label class="popup-bg__label">Phone number</label>
-    <input type="number" class="popup-bg__input" [(ngModel)]="devotee.contact.phone">
+    <input type="tel" class="popup-bg__input" [(ngModel)]="devotee.contact.phone" maxlength="20">
 
     <label class="popup-bg__label">E-mail</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="devotee.contact.email">
+    <input type="email" class="popup-bg__input" [(ngModel)]="devotee.contact.email" maxlength="40">
 
     <div class="input-container">
       <div class="input-container__box">
@@ -108,25 +108,25 @@
   <div class="popup-bg" *ngIf="toggle.updateRegister">
     
     <label class="popup-bg__label">Spiritual name</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.spiritualName">
+    <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.spiritualName" maxlength="30">
 
     <label class="popup-bg__label">Social name</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.socialName">
+    <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.socialName" maxlength="50">
 
     <label class="popup-bg__label">City</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.adress.city">
+    <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.adress.city" maxlength="50">
 
     <label class="popup-bg__label">State</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.adress.state">
+    <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.adress.state" maxlength="30">
 
     <label class="popup-bg__label">Country</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.adress.country">
+    <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.adress.country" maxlength="30">
 
     <label class="popup-bg__label">Phone number</label>
-    <input type="number" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.contact.phone">
+    <input type="tel" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.contact.phone" maxlength="20">
 
     <label class="popup-bg__label">E-mail</label>
-    <input type="text" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.contact.email">
+    <input type="email" class="popup-bg__input" [(ngModel)]="itemToUpdate.item.contact.email" maxlength="40">
 
     <div class="input-container">
       <div class="input-container__box">

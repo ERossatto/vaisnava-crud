@@ -61,15 +61,38 @@ export class TaruniGopiComponent implements OnInit {
   }
 
   checkError() {
-    const hasSpiritualName = !!this.devotee.spiritualName;
-    const hasSocialName = !!this.devotee.socialName;
-    const hasCity = !!this.devotee.adress.city;
-    const hasState = !!this.devotee.adress.state;
-    const hasCountry = !!this.devotee.adress.country;
-    const hasPhone = !!this.devotee.contact.phone;
-    const hasEmail = !!this.devotee.contact.email;
-    const hasDateOfBirth = !!this.devotee.dateOfBirth;
-    const hasDateOfInitiation = !!this.devotee.dateOfInitiation;
+    let hasSpiritualName;
+    let hasSocialName;
+    let hasCity;
+    let hasState;
+    let hasCountry;
+    let hasPhone;
+    let hasEmail;
+    let hasDateOfBirth;
+    let hasDateOfInitiation;
+
+    if (this.toggle.createRegister) {
+      hasSpiritualName = !!this.devotee.spiritualName;
+      hasSocialName = !!this.devotee.socialName;
+      hasCity = !!this.devotee.adress.city;
+      hasState = !!this.devotee.adress.state;
+      hasCountry = !!this.devotee.adress.country;
+      hasPhone = !!this.devotee.contact.phone;
+      hasEmail = !!this.devotee.contact.email;
+      hasDateOfBirth = !!this.devotee.dateOfBirth;
+      hasDateOfInitiation = !!this.devotee.dateOfInitiation;
+    }
+    else if (this.toggle.updateRegister) {
+      hasSpiritualName = !!this.itemToUpdate.item.spiritualName;
+      hasSocialName = !!this.itemToUpdate.item.socialName;
+      hasCity = !!this.itemToUpdate.item.adress.city;
+      hasState = !!this.itemToUpdate.item.adress.state;
+      hasCountry = !!this.itemToUpdate.item.adress.country;
+      hasPhone = !!this.itemToUpdate.item.contact.phone;
+      hasEmail = !!this.itemToUpdate.item.contact.email;
+      hasDateOfBirth = !!this.itemToUpdate.item.dateOfBirth;
+      hasDateOfInitiation = !!this.itemToUpdate.item.dateOfInitiation;
+    }
 
     if (hasSpiritualName == false) this.errorMsg.hasSpiritualName = '* (required)';
     else this.errorMsg.hasSpiritualName = '';
@@ -99,18 +122,35 @@ export class TaruniGopiComponent implements OnInit {
     else this.errorMsg.hasDateOfInitiation = '';
 
     const out = (
-      hasSpiritualName &&
-      hasSocialName &&
-      hasCity &&
-      hasState &&
-      hasCountry &&
-      hasPhone &&
-      hasEmail &&
-      hasDateOfBirth &&
-      hasDateOfInitiation
+      !hasSpiritualName ||
+      !hasSocialName ||
+      !hasCity ||
+      !hasState ||
+      !hasCountry ||
+      !hasPhone ||
+      !hasEmail ||
+      !hasDateOfBirth ||
+      !hasDateOfInitiation ||
+      this.getRepeatedRegister()
     );
 
-    return !out;
+    return out;
+  }
+
+  getRepeatedRegister(): boolean {
+    const _socialName = (this.toggle.createRegister) ? this.devotee.socialName : this.itemToUpdate.item.socialName;
+    const _dateOfBirth = (this.toggle.createRegister) ? this.devotee.dateOfBirth : this.itemToUpdate.item.dateOfBirth;
+
+    const out = this.dataBase.some( (item) => {
+      return (
+        ( item.socialName.toUpperCase() == _socialName.toUpperCase() ) &&
+        ( item.dateOfBirth.toUpperCase() == _dateOfBirth.toUpperCase() )
+      )
+    });
+
+    if (out) alert('Este paciente ja existe na base');
+
+    return out;
   }
 
   createRegister( devotee ) {
@@ -146,6 +186,8 @@ export class TaruniGopiComponent implements OnInit {
   }
 
   updateRegister() {
+    if (this.checkError()) return;
+
     this.dataBase[this.itemToUpdate.index] = this.itemToUpdate.item;
 
     this.toggle.updateRegister = false;

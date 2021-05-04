@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Toggle } from 'app/shared/helpers/switches.interface';
+import { IItemToUpdate, IPokemon } from './govinda-das.interfaces';
 
 @Component({
   selector: 'app-govinda-das',
@@ -7,28 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GovindaDasComponent implements OnInit {
 
-  dataBase = [];
+  public dataBase: Array<IPokemon> = [];
 
-  toggle = {
-    create: false,
-    update: false,
+  public toggle = {
+    create: new Toggle(),
+    update: new Toggle(),
   };
 
-  pokemon = {
-    name: undefined,
-    atk: undefined,
-    def: undefined,
-    element: undefined,
-  };
+  public pokemon: IPokemon;
 
-  itemToUpdate = {
-    index: undefined,
-    item: undefined,
-  };
+  public itemToUpdate: IItemToUpdate;
 
-  shakeTest = false;
+  public shakeTest: boolean = false;
 
-  errorMsg = {
+  public errorMsg = {
     hasntName: '',
     hasntAtk: '',
     hasntDef: '',
@@ -40,12 +34,19 @@ export class GovindaDasComponent implements OnInit {
   ngOnInit() {
   }
 
-  checkError() {
+  private clearForm(): void {
+    this.pokemon.name = undefined;
+    this.pokemon.atk = undefined;
+    this.pokemon.def = undefined;
+    this.pokemon.element = undefined;
+  }
 
-    const hasntName = !this.pokemon.name;
-    const hasntAtk = !this.pokemon.atk;
-    const hasntDef = !this.pokemon.def;
-    const hasntElement = !this.pokemon.element;
+  private checkError(): boolean {
+
+    const hasntName: boolean = !this.pokemon.name;
+    const hasntAtk: boolean = !this.pokemon.atk;
+    const hasntDef: boolean = !this.pokemon.def;
+    const hasntElement: boolean = !this.pokemon.element;
 
     if (hasntName) this.errorMsg.hasntName = 'O pokemon precisa ter um nome treinador!';
     else this.errorMsg.hasntName = '';
@@ -69,38 +70,31 @@ export class GovindaDasComponent implements OnInit {
     return out;
   }
 
-  create() {
+  public create(): void {
     if (this.checkError()) return;
 
     this.dataBase.push( {...this.pokemon} );
 
     this.clearForm();
 
-    this.toggle.create = false;
+    this.toggle.create.hide();
   }
 
-  update() {
+  public update(): void {
     this.dataBase[this.itemToUpdate.index] = this.itemToUpdate.item;
 
-    this.toggle.update = false;
+    this.toggle.update.hide();
   }
 
-  openUpdatePopup( item, index ) {
-    this.toggle.update = true;
+  public openUpdatePopup( item: IPokemon, index: number ): void {
+    this.toggle.update.show();
 
     this.itemToUpdate.item = item;
     this.itemToUpdate.index = index;
   }
 
-  delete( index ) {
+  public delete( index: number ): void {
     this.dataBase.splice( index, 1 );
-  }
-
-  clearForm() {
-    this.pokemon.name = undefined;
-    this.pokemon.atk = undefined;
-    this.pokemon.def = undefined;
-    this.pokemon.element = undefined;
   }
 
   teste() {

@@ -13,7 +13,7 @@ export class Toggle {
   public show() { this._status = true };
   public hide() { this._status = false };
 
-  get status (): boolean {
+  get status(): boolean {
     return this._status;
   };
 }

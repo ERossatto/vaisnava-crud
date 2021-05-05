@@ -20,15 +20,20 @@ export class TaruniGopiComponent implements OnInit {
     deleteConfirmation: new Toggle()
   };
 
-  public devotee: IDevotee;
+  public devotee: IDevotee = new IDevotee();
 
   public itemToUpdate: {
     item: IDevotee,
     index: number,
+  } = {
+    item: new IDevotee(), 
+    index: undefined
   };
 
   public itemToDelete: {
     index: number,
+  } = {
+    index: undefined
   };
 
   public errorMsg = {

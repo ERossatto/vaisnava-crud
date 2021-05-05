@@ -22,13 +22,13 @@ export class TaruniGopiComponent implements OnInit {
 
   public devotee: IDevotee;
 
-  public itemToUpdate = {
-    item: undefined,
-    index: undefined,
+  public itemToUpdate: {
+    item: IDevotee,
+    index: number,
   };
 
-  public itemToDelete = {
-    index: undefined,
+  public itemToDelete: {
+    index: number,
   };
 
   public errorMsg = {

@@ -155,6 +155,16 @@ export class TaruniGopiComponent implements OnInit {
     this.devoteeReset();
   }
 
+  public handleCreateRegister(): void {
+    this.toggle.createRegister.show();
+    this.toggle.registerConfirmation.hide();
+  }
+
+  public handleReadRegister(): void {
+    this.toggle.readRegister.show();
+    this.toggle.registerConfirmation.hide();
+  }
+
   private devoteeReset(): void {
     this.devotee.spiritualName = undefined;
     this.devotee.socialName = undefined;

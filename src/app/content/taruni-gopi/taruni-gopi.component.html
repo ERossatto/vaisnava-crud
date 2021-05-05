@@ -9,8 +9,8 @@
   <!-- Botões da página inicial -->
 
   <div class="homepage-buttons-box">
-    <button class="homepage-buttons-box__button" (click)="toggle.createRegister.show(); toggle.registerConfirmation.hide()">Register new devotee</button>
-    <button class="homepage-buttons-box__button" (click)="toggle.readRegister.show(); toggle.registerConfirmation.hide()">Show registers</button>
+    <button class="homepage-buttons-box__button" (click)="handleCreateRegister()">Register new devotee</button>
+    <button class="homepage-buttons-box__button" (click)="handleReadRegister()">Show registers</button>
   </div>
 
   <!-- Cadastrar novo devoto(a) -->

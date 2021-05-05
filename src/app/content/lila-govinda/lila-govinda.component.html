@@ -7,29 +7,30 @@
 
   <div class="popup" *ngIf="toggle.signUpPopUp">
 
-    <button class="popup__close" (click)="toggle.signUpPopUp = false">x</button>
+    <!-- <button class="popup__close" (click)="toggle.signUpPopUp = false">x</button> -->
+    <button class="close" (click)="toggle.signUpPopUp = false"></button>
 
-    <div class="inputBox">
+    <div class="popup__input-box">
       <input type="text" id="firstname" autocomplete="off" required [(ngModel)]="user.firstName">
       <label>First name</label>
     </div>
 
-    <div class="inputBox">
+    <div class="popup__input-box">
       <input type="text" id="lastname" autocomplete="off" required [(ngModel)]="user.lastName">
       <label>Last name</label>
     </div>
 
-    <div class="inputBox">
+    <div class="popup__input-box">
       <input type="text" id="email" autocomplete="off" required [(ngModel)]="user.email">
       <label>Email</label>
     </div>
 
-    <div class="inputBox">
+    <div class="popup__input-box">
       <input type="password" id="password" autocomplete="off" required [(ngModel)]="user.password">
       <label>Password</label>
     </div>
 
-    <div class="inputBox">
+    <div class="popup__input-box">
       <input type="date" id="birthday" autocomplete="off" required [(ngModel)]="user.birthday">
       <label>Birthday</label>
     </div>

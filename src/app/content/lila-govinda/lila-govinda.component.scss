@@ -1,5 +1,7 @@
 @import "~variables.scss";
 
+$blue-lila-govinda: #03a9f4;
+
 .div {
   height: $height-less-header;
   width: 100vw;
@@ -26,7 +28,7 @@
 
   height: 64vh;
   width: 25vw;
-  padding: 42px;
+  padding: 1rem;
   border-radius: 10px;
 
   background: rgba(0, 0, 0, .8);
@@ -34,59 +36,68 @@
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
 
+  @include mobile(portrait) {
+    background-color: red;
+  }
+  @include mobile(landscape) {
+    background-color: green;
+  }
+
   &__close {
-    position: relative;
+    position: absolute;
 
     align-self: flex-end;
-    top: -40px;
-    right: -33px;
+    top: 1vh;
+    right: .5vw;
   }
 
   /* ::-webkit-input-placeholder {
     color: red;
     text-align: center;
   } */
+
+  /* Positioning the inputs from popup */
+  &__input-box {
+    position: relative;
+
+    /* Styling the inputs from popup */
+    input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: 1px;
+      // margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+
+      /* Animating the inputs from popup */
+      &:focus ~ label, &:valid ~ label {
+        top: -18px;
+        left: 0;
+        color: $blue-lila-govinda;
+        font-size: 12px;
+      }
+    }
+
+    /* Styling the labels from popup */
+    label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      pointer-events: none;
+      transition: .5s;
+    }
+  }
 }
 
-/* Positioning the inputs from popup */
-.inputBox {
-  position: relative;
-}
 
-/* Styling the inputs from popup */
-.inputBox input {
-  width: 16vw;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  letter-spacing: 1px;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
-}
 
-/* Styling the labels from popup */
-.inputBox label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: .5s;
-}
-
-/* Animating the inputs from popup */
-.inputBox input:focus ~ label,
-.inputBox input:valid ~ label {
-  top: -18px;
-  left: 0;
-  color: #03a9f4;
-  font-size: 12px;
-}
 
 /* Styling buttons */
 /* "Sign up" from popup */
@@ -95,7 +106,7 @@
   border: none;
   outline: none;
   color: #fff;
-  background: #03a9f4;
+  background: $blue-lila-govinda;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
@@ -110,7 +121,7 @@
   height: 8vh;
   outline: none;
   color: #fff;
-  background: #03a9f4;
+  background: $blue-lila-govinda;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
@@ -139,3 +150,29 @@ input[type=date]:required:invalid::-webkit-datetime-edit {
   align-items: center;
   justify-content: space-around;
 }
+
+.close {
+  position: absolute;
+  right: .5vw;
+  top: 1vh;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: transparent;
+  border: none;
+}
+.close:before, .close:after {
+  position: absolute;
+  top: -.4vh;
+  left: .6vw;
+  content: ' ';
+  width: 0.2rem;
+  height: 1.5rem;
+  background-color: $blue-lila-govinda
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+

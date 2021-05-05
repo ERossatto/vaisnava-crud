@@ -38,6 +38,14 @@ input {
   align-items: center;
 
   font-family: 'Roboto', sans-serif;
+
+  @include mobile(portrait) {
+    height: calc(100vh - 4rem);
+  }
+
+  @include mobile(landscape) {
+    height: calc(100vw - 4rem);
+  }
 }
 
 .logo {
@@ -47,12 +55,18 @@ input {
 .homepage-buttons-box {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  width: 200px;
-  height: 100px;
+  justify-content: center;
+  width: auto;
+  height: auto;
 
   &__button {
-    height: 40px;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 8px;
   }
 }
 
@@ -60,8 +74,8 @@ input {
   background-color: #ffffff;
   position: absolute;
   top: calc(3% + #{$header-height});
-  width: 450px;
-  height: 480px;
+  width: 40vw;
+  height: auto;
   border-radius: 3px;
   padding: 30px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.219);
@@ -70,8 +84,18 @@ input {
   flex-direction: column;
   align-items: center;
 
+  @include mobile(portrait) {
+    width: 80vw;
+    height: auto;
+  }
+
+  @include mobile(landscape) {
+    width: 80vw;
+    height: auto;
+  }
+
   &__label {
-    font-size: 13px;
+    font-size: 15px;
     align-self: flex-start;
     font-family: 'Roboto', sans-serif;
   }
@@ -84,20 +108,20 @@ input {
   }
 
   &__input {
-    width: 445px;
-    height: 25px;
+    width: 100%;
+    height: 4vh;
     margin-bottom: 15px;
     margin-top: 5px;
     outline: none;
     border: 1px solid #3d311b4b;
 
     font-family: 'Roboto', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   &__scrollbox {
     background-color: lightgoldenrodyellow;
-    width: 420px;
+    width: 100%;
     height: 500px;
     border-radius: 5px;
     overflow: auto;
@@ -123,8 +147,9 @@ input {
 }
 
 .input-container {
-  width: 500px;
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
 
@@ -136,6 +161,7 @@ input {
     width: 200px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 15px;
   }
 
   &__label {
@@ -146,18 +172,20 @@ input {
 }
 
 .popup-button-box {
-  width: 180px;
+  width: 60%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
 
   &__button {
-    width: 80px;
-    height: 30px;
+    width: auto;
+    height: auto;
+    margin: 10px;
+    padding: 12px;
+
   }
 }
 
@@ -174,14 +202,6 @@ input {
   align-items: center;
 
   background-color: #2523233a;
-}
-
-.read-register-button {
-  position: relative;
-  top: -493px;
-  right: -254px;
-  width: 30px;
-  height: 30px;
 }
 
 .confirmation-popup {

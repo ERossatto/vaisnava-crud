@@ -38,6 +38,14 @@ input {
   align-items: center;
 
   font-family: 'Roboto', sans-serif;
+
+  @include mobile(portrait) {
+    height: calc(100vh - 4rem);
+  }
+
+  @include mobile(landscape) {
+    height: calc(100vw - 4rem);
+  }
 }
 
 .logo {
@@ -48,11 +56,36 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 200px;
-  height: 100px;
+  width: 18vw;
+  height: 18vh;
+
+  @include mobile(portrait) {
+    width: 70vw;
+    height: 22vh;
+  }
+
+  @include mobile(landscape) {
+    flex-direction: row;
+    width: 63vw;
+    height: 10vh;
+  }
 
   &__button {
-    height: 40px;
+    height: 7vh;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 400;
+
+    @include mobile(portrait) {
+      font-size: 1.03rem;
+      height: 9vh;
+    }
+
+    @include mobile(landscape) {
+      font-size: 0.9rem;
+      width: 30vw;
+      height: 12vh;
+    }
   }
 }
 
@@ -60,8 +93,8 @@ input {
   background-color: #ffffff;
   position: absolute;
   top: calc(3% + #{$header-height});
-  width: 450px;
-  height: 480px;
+  width: 30vw;
+  height: 75vh;
   border-radius: 3px;
   padding: 30px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.219);
@@ -70,10 +103,28 @@ input {
   flex-direction: column;
   align-items: center;
 
+  @include mobile(portrait) {
+    width: 80vw;
+    height: 78vh;
+  }
+
+  @include mobile(landscape) {
+    width: 60vw;
+    height: 135vh;
+  }
+
   &__label {
     font-size: 13px;
     align-self: flex-start;
     font-family: 'Roboto', sans-serif;
+
+    @include mobile(portrait) {
+      font-size: 15px;
+    }
+  
+    @include mobile(landscape) {
+      font-size: 15px;
+    }
   }
 
   &__error-msg {
@@ -84,8 +135,8 @@ input {
   }
 
   &__input {
-    width: 445px;
-    height: 25px;
+    width: 30vw;
+    height: 4vh;
     margin-bottom: 15px;
     margin-top: 5px;
     outline: none;
@@ -93,6 +144,18 @@ input {
 
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
+
+    @include mobile(portrait) {
+      width: 80vw;
+      height: 3vh;
+      font-size: 15px;
+    }
+
+    @include mobile(landscape) {
+      width: 60vw;
+      height: 5vh;
+      font-size: 15px;
+    }
   }
 
   &__scrollbox {
@@ -111,6 +174,16 @@ input {
     justify-content: left;
     align-items: center;
 
+    @include mobile(portrait) {
+      width: 80vw;
+      height: 70vh;
+    }
+
+    @include mobile(landscape) {
+      width: 60vw;
+      height: 110vh;
+    }
+
     &__items {
       background-color: white;
       border: 1px solid #3d311b36;
@@ -118,6 +191,10 @@ input {
       padding: 10px;
       border-radius: 2px;
       margin-bottom: 10px;
+
+      @include mobile(portrait) {
+        width: 75vw;
+      }
     }
   }
 }
@@ -127,6 +204,14 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  @include mobile(portrait) {
+    width: 30vw;
+  }
+
+  @include mobile(landscape) {
+    width: 30vw;
+  }
 
   &__box {
     display: flex;
@@ -142,6 +227,14 @@ input {
     font-size: 12px;
     margin-top: 10px;
     margin-bottom: 5px;
+
+    @include mobile(portrait) {
+      font-size: 15px;
+    }
+  
+    @include mobile(landscape) {
+      font-size: 15px;
+    }
   }
 }
 
@@ -155,9 +248,24 @@ input {
   margin-left: auto;
   margin-right: auto;
 
+  @include mobile(portrait) {
+    width: 60vw;
+  }
+
   &__button {
     width: 80px;
     height: 30px;
+
+    @include mobile(portrait) {
+      width: 25vw;
+      height: 6vh;
+      font-size: 15px;
+    }
+
+    @include mobile(landscape) {
+      height: 9vh;
+      font-size: 15px;
+    }
   }
 }
 
@@ -174,14 +282,6 @@ input {
   align-items: center;
 
   background-color: #2523233a;
-}
-
-.read-register-button {
-  position: relative;
-  top: -493px;
-  right: -254px;
-  width: 30px;
-  height: 30px;
 }
 
 .confirmation-popup {

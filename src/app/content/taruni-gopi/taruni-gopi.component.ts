@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Toggle } from 'app/shared/helpers/switches.interface';
+import { IDevotee } from './taruni-gopi.interfaces';
 
 @Component({
   selector: 'app-taruni-gopi',
@@ -7,43 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaruniGopiComponent implements OnInit {
 
-  dataBase = [];
+  public dataBase: Array<IDevotee> = [];
 
-  toggle = {
-    createRegister: false,
-    registerConfirmation: false,
-    readRegister: false,
-    updateRegister: false,
-    updateConfirmation: false,
-    deleteConfirmation: false,
+  public toggle = {
+    createRegister: new Toggle(),
+    registerConfirmation: new Toggle(),
+    readRegister: new Toggle(),
+    updateRegister: new Toggle(),
+    updateConfirmation: new Toggle(),
+    deleteConfirmation: new Toggle()
   };
 
-  devotee = {
-    spiritualName: undefined,
-    socialName: undefined,
-    adress: {
-      city: undefined,
-      state: undefined,
-      country: undefined,
-    },
-    contact: {
-      phone: undefined,
-      email: undefined,
-    },
-    dateOfBirth: undefined,
-    dateOfInitiation: undefined,
+  public devotee: IDevotee;
+
+  public itemToUpdate: {
+    item: IDevotee,
+    index: number,
   };
 
-  itemToUpdate = {
-    item: undefined,
-    index: undefined,
+  public itemToDelete: {
+    index: number,
   };
 
-  itemToDelete = {
-    index: undefined,
-  };
-
-  errorMsg = {
+  public errorMsg = {
     hasSpiritualName: '',
     hasSocialName: '',
     hasCity: '',
@@ -60,18 +48,18 @@ export class TaruniGopiComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  checkError() {
-    let hasSpiritualName;
-    let hasSocialName;
-    let hasCity;
-    let hasState;
-    let hasCountry;
-    let hasPhone;
-    let hasEmail;
-    let hasDateOfBirth;
-    let hasDateOfInitiation;
+  private checkError(): boolean {
+    let hasSpiritualName: boolean;
+    let hasSocialName: boolean;
+    let hasCity: boolean;
+    let hasState: boolean;
+    let hasCountry: boolean;
+    let hasPhone: boolean;
+    let hasEmail: boolean;
+    let hasDateOfBirth: boolean;
+    let hasDateOfInitiation: boolean;
 
-    if (this.toggle.createRegister) {
+    if (this.toggle.createRegister.status) {
       hasSpiritualName = !!this.devotee.spiritualName;
       hasSocialName = !!this.devotee.socialName;
       hasCity = !!this.devotee.adress.city;
@@ -82,7 +70,7 @@ export class TaruniGopiComponent implements OnInit {
       hasDateOfBirth = !!this.devotee.dateOfBirth;
       hasDateOfInitiation = !!this.devotee.dateOfInitiation;
     }
-    else if (this.toggle.updateRegister) {
+    else if (this.toggle.updateRegister.status) {
       hasSpiritualName = !!this.itemToUpdate.item.spiritualName;
       hasSocialName = !!this.itemToUpdate.item.socialName;
       hasCity = !!this.itemToUpdate.item.adress.city;
@@ -137,36 +125,47 @@ export class TaruniGopiComponent implements OnInit {
     return out;
   }
 
-  getRepeatedRegister(): boolean {
-    const _socialName = (this.toggle.createRegister) ? this.devotee.socialName : this.itemToUpdate.item.socialName;
-    const _dateOfBirth = (this.toggle.createRegister) ? this.devotee.dateOfBirth : this.itemToUpdate.item.dateOfBirth;
+  public getRepeatedRegister(): boolean {
+    const _socialName = (this.toggle.createRegister.status) ? this.devotee.socialName : this.itemToUpdate.item.socialName;
+    const _dateOfBirth = (this.toggle.createRegister.status) ? this.devotee.dateOfBirth : this.itemToUpdate.item.dateOfBirth;
 
+    // Não entendi essa parte.
     const out = this.dataBase.some( (item) => {
       return (
         ( item.socialName.toUpperCase() == _socialName.toUpperCase() ) &&
-        ( item.dateOfBirth.toUpperCase() == _dateOfBirth.toUpperCase() )
+        ( item.dateOfBirth == _dateOfBirth )  
       )
     });
 
-    if (out) alert('Este paciente ja existe na base');
+    if (out) alert('Este devoto já está cadastrado.');
 
     return out;
   }
 
-  createRegister( devotee ) {
+  public createRegister( IDevotee ): void {
     if (this.checkError()) return;
 
-    const parsedDevotee = JSON.parse(JSON.stringify(devotee));
+    const parsedDevotee = JSON.parse(JSON.stringify(IDevotee));
 
     this.dataBase.push(parsedDevotee);
 
-    this.toggle.createRegister = false;
-    this.toggle.registerConfirmation = true;
+    this.toggle.createRegister.hide();
+    this.toggle.registerConfirmation.show();
 
     this.devoteeReset();
   }
 
-  devoteeReset() {
+  public handleCreateRegister(): void {
+    this.toggle.createRegister.show();
+    this.toggle.registerConfirmation.hide();
+  }
+
+  public handleReadRegister(): void {
+    this.toggle.readRegister.show();
+    this.toggle.registerConfirmation.hide();
+  }
+
+  private devoteeReset(): void {
     this.devotee.spiritualName = undefined;
     this.devotee.socialName = undefined;
     this.devotee.adress.city = undefined;
@@ -178,29 +177,29 @@ export class TaruniGopiComponent implements OnInit {
     this.devotee.dateOfInitiation = undefined;
   }
 
-  openUpdatePopup(item, index) {
-    this.toggle.updateRegister = true;
+  public openUpdatePopup(item: IDevotee, index: number): void {
+    this.toggle.updateRegister.show();
 
     this.itemToUpdate.item = item;
     this.itemToUpdate.index = index;
   }
 
-  updateRegister() {
+  public updateRegister(): void {
     if (this.checkError()) return;
 
     this.dataBase[this.itemToUpdate.index] = this.itemToUpdate.item;
 
-    this.toggle.updateRegister = false;
-    this.toggle.updateConfirmation = true;
+    this.toggle.updateRegister.hide();
+    this.toggle.updateConfirmation.show();
   }
 
-  confirmDelete( index ) {
-    this.toggle.deleteConfirmation = true;
+  public confirmDelete( index: number ): void {
+    this.toggle.deleteConfirmation.show();
     this.itemToDelete.index = index;
   }
 
-  deleteRegister( index ) {
+  public deleteRegister( index: number ): void {
     this.dataBase.splice( index, 1 );
-    this.toggle.deleteConfirmation = false;
+    this.toggle.deleteConfirmation.hide();
   }
 }

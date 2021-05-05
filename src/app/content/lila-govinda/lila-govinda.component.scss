@@ -6,7 +6,7 @@
 }
 
 .section {
-  background: #9A88FF;
+  background: #0173A8;
   height: $height-less-header;
 
   display: flex;
@@ -14,26 +14,25 @@
   align-items: center;
 }
 
+
 .popup {
+  font-family: sans-serif;
   position: absolute;
-
-  // font: bold;
-  height: 20rem;
-  background: #D77AFF;
-  border-radius: 10px;
-  padding: 15px;
-  width: 500px;
-  // margin: auto;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.500);
-  padding: 42px;
-
-  // display: grid;
-  // justify-content:space-around;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+
+  height: 64vh;
+  width: 25vw;
+  padding: 42px;
+  border-radius: 10px;
+
+  background: rgba(0, 0, 0, .8);
+
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
 
   &__close {
     position: relative;
@@ -43,8 +42,100 @@
     right: -33px;
   }
 
-  ::-webkit-input-placeholder {
+  /* ::-webkit-input-placeholder {
     color: red;
     text-align: center;
-  }
+  } */
+}
+
+/* Positioning the inputs from popup */
+.inputBox {
+  position: relative;
+}
+
+/* Styling the inputs from popup */
+.inputBox input {
+  width: 16vw;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+/* Styling the labels from popup */
+.inputBox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+/* Animating the inputs from popup */
+.inputBox input:focus ~ label,
+.inputBox input:valid ~ label {
+  top: -18px;
+  left: 0;
+  color: #03a9f4;
+  font-size: 12px;
+}
+
+/* Styling buttons */
+/* "Sign up" from popup */
+.signUpBtnPopup {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #03a9f4;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* "Sign up" from homepage */
+.signUpBtnHomePage {
+  position:absolute;
+  font-size: 30px;
+  top: 20%;
+  left: 12%;
+  height: 8vh;
+  outline: none;
+  color: #fff;
+  background: #03a9f4;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* "x" on the top-right corner of popup */
+/* --TBD-- */
+
+/* Attempt to remove MM-DD-YYYY from date input */
+input[type=date]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+
+/* Styling the inputs from gender section of popup */
+#genderFormTitle{
+  font-family: sans-serif;
+  color: white;
+}
+
+.genderForm {
+  font-family: sans-serif;
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }

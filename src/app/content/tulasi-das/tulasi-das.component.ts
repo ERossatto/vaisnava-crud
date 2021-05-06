@@ -12,6 +12,7 @@ export class TulasiDasComponent implements OnInit {
   toggle = {
     create: false,
     update: false,
+    read: false,
   };
 
   doctor = {
@@ -20,6 +21,11 @@ export class TulasiDasComponent implements OnInit {
     specialization: undefined,
     email: undefined,
     phone: undefined,
+  };
+
+  itemToUpdate = {
+    index: undefined,
+    item: undefined,
   };
 
   constructor() { }
@@ -45,4 +51,16 @@ export class TulasiDasComponent implements OnInit {
     this.doctor.phone = undefined;
   }
 
+  update() {
+    this.dataBase[this.itemToUpdate.index] = this.itemToUpdate.item;
+
+    this.toggle.update = false;
+  }
+
+    openUpdatePopup( item, index ) {
+    this.toggle.update = true;
+
+    this.itemToUpdate.item = item;
+    this.itemToUpdate.index = index;
+  }
 }

@@ -1,6 +1,10 @@
 <section class="section">
+  
+  <!-- CRUD: create, read, update and delete a register. -->
 
-  <h1 class="h1">Cadastro Médico</h1>
+  <h1 class="h1"> Cadastro Médico </h1>
+
+  <!--Formulario do cadastro médico-->
 
   <div class="container">
     <div class="register">
@@ -13,10 +17,10 @@
       <label class="label">Especialização:</label>
       <select class="specialization" [(ngModel)]="doctor.specialization">
       <option value="" disabled selected hidden>Selecione sua especialização</option>
-      <option value="" >DERMATOLOGIA</option>
-      <option value="">CARDIOLOGIA</option>
-      <option value="">PEDIATRIA</option>
-      <option value="">CIRURGIA PLASTICA</option>
+      <option value=""> DERMATOLOGIA </option>
+      <option value=""> CARDIOLOGIA </option>
+      <option value=""> PEDIATRIA </option>
+      <option value=""> CIRURGIA PLASTICA </option>
       </select>
 
       <label class="label">Email:</label>
@@ -28,23 +32,41 @@
       <button class="registrationButtton" (click)="create(doctor)">Cadastrar</button>
     </div>
 
-    <div class="images">
+    <div>
       <img src="../../../assets/tulasi/medica.jpg" alt="medica">
     </div>
   </div>
 
-  <div>
-    <ul *ngFor="let item of dataBase">
-      <li>
+  <div class="registeredDoctors">
+  <button class="registeredDoctors__button" (click)="toggle.read = true">Médicos cadastrados</button>
+  </div>
+   
+  <!-- Lista que exibe os medicos cadastrados -->
+  
+  <div class="read" *ngIf="toggle.read" >
+     <div class="read__list" *ngFor="let item of dataBase">
+     <div class="read__item"> 
+       <p> 
         {{item.name}} |
         {{item.crm}} |
         {{item.specialization}} |
         {{item.email}} |
         {{item.phone}} |
-      </li>
-      <button>Update</button>
-      <button>Delete</button>
-    </ul>
+      </p>
+    </div>
+    </div>
+   
+    <!--Upadate / Delete  buttons-->
+    <div class="popup-buttons">
+      <button class="update-button" (click)="openUpdatePopup(item, i)">Update</button>
+      <button class="delete-button">Delete</button>
+    </div>
+  
+  <!-- Botão de Voltar-->
+  <div>
+    <button class="button-back"(click)="toggle.read = false">Voltar</button>
   </div>
-
+  
+</div>  
 </section>
+

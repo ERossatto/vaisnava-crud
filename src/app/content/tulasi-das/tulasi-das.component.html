@@ -1,8 +1,7 @@
 <section class="section">
-  
-  <!-- CRUD: create, read, update and delete a register. -->
 
-  <h1 class="h1"> Cadastro Médico </h1>
+  <!-- CRUD: create, read, update and delete a register. -->
+  <h1 class="title"> Cadastro Médico </h1>
 
   <!--Formulario do cadastro médico-->
 
@@ -12,15 +11,14 @@
       <input type="text" [(ngModel)]="doctor.name" class="input">
 
       <label class="label">CRM:</label>
-      <input type="number" [(ngModel)]="doctor.crm" class="input">
+      <input type="text" [(ngModel)]="doctor.crm" class="input" mask="000.000">
 
       <label class="label">Especialização:</label>
       <select class="specialization" [(ngModel)]="doctor.specialization">
-      <option value="" disabled selected hidden>Selecione sua especialização</option>
-      <option value=""> DERMATOLOGIA </option>
-      <option value=""> CARDIOLOGIA </option>
-      <option value=""> PEDIATRIA </option>
-      <option value=""> CIRURGIA PLASTICA </option>
+        <option value="DERMATOLOGIA"> DERMATOLOGIA </option>
+        <option value="CARDIOLOGIA"> CARDIOLOGIA </option>
+        <option value="PEDIATRIA"> PEDIATRIA </option>
+        <option value="CIRURGIA PLASTICA"> CIRURGIA PLASTICA </option>
       </select>
 
       <label class="label">Email:</label>
@@ -32,41 +30,36 @@
       <button class="registrationButtton" (click)="create(doctor)">Cadastrar</button>
     </div>
 
-    <div>
+    <!-- <div>
       <img src="../../../assets/tulasi/medica.jpg" alt="medica">
-    </div>
+    </div> -->
   </div>
 
   <div class="registeredDoctors">
-  <button class="registeredDoctors__button" (click)="toggle.read = true">Médicos cadastrados</button>
+    <button class="registeredDoctors__button" (click)="toggle.read = true">
+      Médicos cadastrados
+    </button>
   </div>
-   
+
   <!-- Lista que exibe os medicos cadastrados -->
-  
+
   <div class="read" *ngIf="toggle.read" >
-     <div class="read__list" *ngFor="let item of dataBase">
-     <div class="read__item"> 
-       <p> 
+    <div class="read__list" *ngFor="let item of dataBase; let i = index">
+      <p>
         {{item.name}} |
         {{item.crm}} |
         {{item.specialization}} |
         {{item.email}} |
         {{item.phone}} |
       </p>
-    </div>
-    </div>
-   
-    <!--Upadate / Delete  buttons-->
-    <div class="popup-buttons">
       <button class="update-button" (click)="openUpdatePopup(item, i)">Update</button>
-      <button class="delete-button">Delete</button>
+      <button class="delete-button" (click)="delete(i)">Delete</button>
     </div>
-  
-  <!-- Botão de Voltar-->
-  <div>
+
     <button class="button-back"(click)="toggle.read = false">Voltar</button>
   </div>
-  
-</div>  
+
+  <!-- popup de confirmacao de cadastro -->
+  <!-- read nao pode aparecer quando nao tiver medico cadastrado -->
 </section>
 

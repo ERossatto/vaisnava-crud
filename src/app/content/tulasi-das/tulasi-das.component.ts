@@ -63,4 +63,10 @@ export class TulasiDasComponent implements OnInit {
     this.itemToUpdate.item = item;
     this.itemToUpdate.index = index;
   }
+
+  delete( index ) {
+    this.dataBase.splice( index, 1 );
+
+    if ( !this.dataBase.length ) this.toggle.read = false;
+  }
 }

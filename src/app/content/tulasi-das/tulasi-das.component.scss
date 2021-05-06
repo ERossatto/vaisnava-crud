@@ -7,63 +7,65 @@
 
 
 .section {
-  
-    height: $height-less-header;
-    width: 100%;
-    
+
+  height: $height-less-header;
+  width: 100%;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  // background: linear-gradient(
+  //   -45deg,
+  //   $crud-orange,
+  //   $crud-pink,
+  //   $crud-blue,
+  //   $crud-green
+  // );
+  background-image: url('../../../assets/tulasi/medica.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+
+  .registeredDoctors {
+    position: relative;
 
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    
-    background: linear-gradient(
-      -45deg,
-      $crud-orange,
-      $crud-pink,
-      $crud-blue,
-      $crud-green
-    );
 
-    .registeredDoctors {
-      position: relative;
-      
-      display: flex;
-      
-      left: 11rem;
-      bottom: 3rem;
-    }
-    
-    .registeredDoctors__button{
-      height: 3rem;
-      width: 9rem;
-      
-      font-size: 1rem;
-      
-      cursor: pointer;
-      border-radius: 8px;
-      
-      opacity: 0.8;
-      transition: opacity 0.2s;
-   
-    }
-  .h1 { 
-    position: relative;
-    
-    right: 20rem;
-    
+    left: 11rem;
+    bottom: 3rem;
+  }
+
+  .registeredDoctors__button{
+    height: 3rem;
+    width: 9rem;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+    border-radius: 8px;
+
+    opacity: 0.8;
+    transition: opacity 0.2s;
+
+  }
+  .title {
+    // position: relative;
+    // right: 20rem;
+
     margin-top:0.8rem;
-    
-    
+
     font-weight: bold;
     font-size: 1.8rem;
-   
   }
 
   .container {
     display: flex;
     align-items: center;
-   
+
     .register {
       display: flex;
       flex-direction: column;
@@ -73,8 +75,12 @@
       width: 30rem;
       height: 34rem;
 
-      
-      background-color: #00995d;
+      @include mobile(portrait) {
+        width: 90vw;
+      }
+
+      background-color: rgba(51, 49, 49, 0.7);
+      backdrop-filter: blur(10px);
 
       border-radius: 8px;
 
@@ -105,88 +111,60 @@
       .registrationButtton {
         height: 2rem;
         width: 10rem;
-        
-        
+
+
         font-size: 1rem;
         margin-top: 7%;
-        
+
         cursor: pointer;
         border-radius: 8px;
-        
+
         opacity: 0.8;
         transition: opacity 0.2s;
       }
 
       }
+  }
+
+  .read {
+    position: absolute;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(51, 49, 49, 0.7);
+    backdrop-filter: blur(10px);
+
+    height: $height-less-header;
+    width: 100vw;
+
+    .button-back {
+      height: 2rem;
+      width: 10rem;
+
+      font-size: 1rem;
+
+      cursor: pointer;
+      border-radius: 8px;
+
+      // transition: opacity 0.2s;
     }
-    .read {
-      position: absolute;
-      z-index: 1;
-      
+
+    &__list {
       display: flex;
       align-items: center;
       justify-content: center;
-      
-      height: $height-less-header;
-      width: 100vw;
 
-      .button-back {
-       position: relative;
-        height: 2rem;
-        width: 10rem;
-        
-        z-index: 1;
-        
-        
-        font-size: 1rem;
-        
-        
-        cursor: pointer;
-        border-radius: 8px;
-        
-        opacity: 0.8;
-        transition: opacity 0.2s;
-        
+      width: 50vw;
 
-      }
-    
-      &__list {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        
-        height: $height-less-header;
-        width: 100vw;
-        background-color: #fff;
+      margin-bottom: .5rem;
+      border-radius: 20px;
+      padding: .5rem 0;
 
-      }
-
-      &__item {
-        display: flex;
-        flex-direction: column;
-
-        height: 30rem;
-        width:25rem;
-
-        padding: 10px;
-        border-radius: 5px;
-        margin-bottom: 10px;
-
-        background-color: green;
-
-        
-      }
-
-      .popup-buttons {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      
-    
-
+      background-color: #fff;
     }
   }
-
-
+}

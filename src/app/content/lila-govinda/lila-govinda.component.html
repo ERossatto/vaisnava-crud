@@ -2,7 +2,7 @@
 
 <!-- Sign up form -->
   <div>
-    <button class="signUpBtnHomePage" (click)="toggle.signUpPopUp = true">Sign up</button>
+    <button class="signup-btn-home" (click)="toggle.signUpPopUp = true">Sign up</button>
   </div>
 
   <div class="popup" *ngIf="toggle.signUpPopUp">
@@ -31,13 +31,13 @@
     </div>
 
     <div class="popup__input-box">
-      <input type="date" id="birthday" autocomplete="off" required [(ngModel)]="user.birthday">
+      <input type="date" autocomplete="off" required [(ngModel)]="user.birthday">
       <label>Birthday</label>
     </div>
 
     <!-- Selecting gender -->
-    <p id="genderFormTitle">Gender</p>
-    <div class="genderForm">
+    <p class="gender-form-title">Gender</p>
+    <div class="gender-form">
 
       <label for="male">Male</label>
       <input #male type="radio" name="radsex" (click)="fetchSelectedGender()">
@@ -50,12 +50,12 @@
       <input type="text" placeholder="Type your gender" *ngIf="toggle.otherGender" [(ngModel)]="user.gender.otherDescription">
     </div>
 
-    <button class="signUpBtnPopup" (click)="userSignUp( user )">Sign Up</button>
+    <button class="signup-btn-popup" (click)="userSignUp( user )">Sign Up</button>
 
   </div>
 
 <!-- esboco para lista inscritos -->
-  <div style="height: 25rem; background-color: blue;">
+  <div style="height: 25rem; background-color: #F58702;">
     <ul *ngFor="let item of dataBase">
       <li>
         {{item.firstName}} |

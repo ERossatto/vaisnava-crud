@@ -14,11 +14,25 @@ $blue-lila-govinda: #03a9f4;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-family: sans-serif;
 }
 
+/* "Sign up" button from homepage */
+.signup-btn-home {
+  position:absolute;
+  font-size: 30px;
+  top: 20%;
+  left: 12%;
+  outline: none;
+  color: #fff;
+  background: $blue-lila-govinda;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
 .popup {
-  font-family: sans-serif;
   position: absolute;
 
   display: flex;
@@ -36,13 +50,6 @@ $blue-lila-govinda: #03a9f4;
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
 
-  @include mobile(portrait) {
-    background-color: red;
-  }
-  @include mobile(landscape) {
-    background-color: green;
-  }
-
   &__close {
     position: absolute;
 
@@ -51,41 +58,48 @@ $blue-lila-govinda: #03a9f4;
     right: .5vw;
   }
 
-  /* ::-webkit-input-placeholder {
-    color: red;
-    text-align: center;
-  } */
-
-  /* Positioning the inputs from popup */
+  /* Positioning the inputs*/
   &__input-box {
     position: relative;
 
-    /* Styling the inputs from popup */
+    /* Styling the inputs*/
     input {
+      position: relative;
+      display: flex;
+      justify-content: left;
       width: 100%;
       padding: 10px 0;
       font-size: 16px;
       color: #fff;
       letter-spacing: 1px;
-      // margin-bottom: 30px;
       border: none;
       border-bottom: 1px solid #fff;
       outline: none;
       background: transparent;
 
-      /* Animating the inputs from popup */
+      /* Animating the labels*/
       &:focus ~ label, &:valid ~ label {
-        top: -18px;
+        top: -90%;
         left: 0;
         color: $blue-lila-govinda;
         font-size: 12px;
       }
+
+      /* ::-webkit-input-placeholder {
+      color: red;
+      text-align: center;
+      } */
     }
 
-    /* Styling the labels from popup */
+    /* Remove MM-DD-YYYY from date input */
+    input[type=date]:required:invalid::-webkit-datetime-edit {
+      color: transparent;
+    }
+
+    /* Styling labels*/
     label {
-      position: absolute;
-      top: 0;
+      position: relative;
+      top: -35%;
       left: 0;
       padding: 10px 0;
       font-size: 16px;
@@ -94,85 +108,64 @@ $blue-lila-govinda: #03a9f4;
       transition: .5s;
     }
   }
+
+  /* Styling the inputs from gender section*/
+  .gender-form {
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .gender-form-title {
+    color: white;
+  }
+
+  /* Sign up button from popup*/
+  .signup-btn-popup {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: $blue-lila-govinda;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  /* Close popup */
+  .close {
+    position: absolute;
+    right: 0.8vw;
+    top: 1.8vh;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: transparent;
+    border: none;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    top: -.4vh;
+    left: .6vw;
+    content: ' ';
+    width: 0.2rem;
+    height: 1.5rem;
+    background-color: $blue-lila-govinda
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+
+  /* Mobile responsivity */
+  @include mobile(portrait) {
+    background-color: red;
+  }
+  @include mobile(landscape) {
+    background-color: green;
+  }
 }
-
-
-
-
-/* Styling buttons */
-/* "Sign up" from popup */
-.signUpBtnPopup {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: $blue-lila-govinda;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-/* "Sign up" from homepage */
-.signUpBtnHomePage {
-  position:absolute;
-  font-size: 30px;
-  top: 20%;
-  left: 12%;
-  height: 8vh;
-  outline: none;
-  color: #fff;
-  background: $blue-lila-govinda;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-/* "x" on the top-right corner of popup */
-/* --TBD-- */
-
-/* Attempt to remove MM-DD-YYYY from date input */
-input[type=date]:required:invalid::-webkit-datetime-edit {
-  color: transparent;
-}
-
-/* Styling the inputs from gender section of popup */
-#genderFormTitle{
-  font-family: sans-serif;
-  color: white;
-}
-
-.genderForm {
-  font-family: sans-serif;
-  color: white;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.close {
-  position: absolute;
-  right: .5vw;
-  top: 1vh;
-  width: 1.2rem;
-  height: 1.2rem;
-  background-color: transparent;
-  border: none;
-}
-.close:before, .close:after {
-  position: absolute;
-  top: -.4vh;
-  left: .6vw;
-  content: ' ';
-  width: 0.2rem;
-  height: 1.5rem;
-  background-color: $blue-lila-govinda
-}
-.close:before {
-  transform: rotate(45deg);
-}
-.close:after {
-  transform: rotate(-45deg);
-}
-

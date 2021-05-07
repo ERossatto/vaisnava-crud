@@ -28,11 +28,17 @@
       <input type="number" [(ngModel)]="doctor.phone" class="input">
 
       <button class="registrationButtton" (click)="create(doctor)">Cadastrar</button>
+     
+      <!-- Pop-up de confirmação do cadastro -->
+      <div class="register-confirmation" *ngIf="toggle.openRegisterConfirmation">
+      
+        <p>Cadastro concluido!</p>
+      
+     <div class="popup-button-box">
+      <button class="popup-button-box__button" (click)="toggle.openRegisterConfirmation = false">OK</button>
+      </div>
+        </div>  
     </div>
-
-    <!-- <div>
-      <img src="../../../assets/tulasi/medica.jpg" alt="medica">
-    </div> -->
   </div>
 
   <div class="registeredDoctors">
@@ -59,7 +65,7 @@
     <button class="button-back"(click)="toggle.read = false">Voltar</button>
   </div>
 
-  <!-- popup de confirmacao de cadastro -->
+  
   <!-- read nao pode aparecer quando nao tiver medico cadastrado -->
 </section>
 

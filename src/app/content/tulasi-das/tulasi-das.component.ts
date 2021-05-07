@@ -13,6 +13,7 @@ export class TulasiDasComponent implements OnInit {
     create: false,
     update: false,
     read: false,
+    openRegisterConfirmation: false,
   };
 
   doctor = {
@@ -37,8 +38,8 @@ export class TulasiDasComponent implements OnInit {
     this.dataBase.push( {...doctor} );
 
     this.clearForm();
-
     this.toggle.create = false;
+    this.toggle.openRegisterConfirmation = true,
 
     console.log( this.dataBase );
   }
@@ -68,5 +69,9 @@ export class TulasiDasComponent implements OnInit {
     this.dataBase.splice( index, 1 );
 
     if ( !this.dataBase.length ) this.toggle.read = false;
+  }
+
+  sucessfullyRegister() {
+
   }
 }

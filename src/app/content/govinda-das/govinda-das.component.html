@@ -1,8 +1,8 @@
 <section class="section">
 
-  <button class="btn btn__add" (click)="toggle.create = true">Adicionar novo Pokemon</button>
+  <button class="btn btn__add" (click)="toggle.create.show()">Adicionar novo Pokemon</button>
 
-  <div class="popup-bg" *ngIf="toggle.create">
+  <div class="popup-bg" *ngIf="toggle.create.status">
     <div class="popup">
       <div class="popup__input-container">
         <input type="text" [(ngModel)]="pokemon.name" placeholder="Digite o nome do Pokemon" [ngClass]="{'shake': errorMsg.hasntName.length > 0}" maxlength="10">
@@ -26,7 +26,7 @@
 
       <div class="popup__buttons">
         <button class="btn btn__white" (click)="create()">Concluir</button>
-        <button class="btn btn__white" (click)="toggle.create = false">Fechar</button>
+        <button class="btn btn__white" (click)="toggle.create.hide()">Fechar</button>
         <button class="btn btn__white" (click)="teste()">teste</button>
       </div>
 
@@ -49,8 +49,8 @@
 
   </div>
 
-  <div class="popup-bg" *ngIf="toggle.update">
-    <div class="popup" *ngIf="toggle.update">
+  <div class="popup-bg" *ngIf="toggle.update.status">
+    <div class="popup" *ngIf="toggle.update.status">
 
       <input type="text" [(ngModel)]="itemToUpdate.item.name" placeholder="Digite o nome do Pokemon">
       <input type="number" [(ngModel)]="itemToUpdate.item.atk" placeholder="Digite o ataque do Pokemon">
@@ -59,7 +59,7 @@
 
       <div class="popup__buttons">
         <button class="btn btn__white" (click)="update()">Concluir</button>
-        <button class="btn btn__white" (click)="toggle.update = false">Fechar</button>
+        <button class="btn btn__white" (click)="toggle.update.hide()">Fechar</button>
       </div>
 
     </div>

@@ -20,6 +20,12 @@ button:hover {
   background-color: #fa7d4b;
 }
 
+input {
+  border: 1px solid #3d311b4b;
+  height: 25px;
+  cursor: text;
+}
+
 .section {
   background-image: url(../../../assets/taruni-gopi/background.jpg);
 
@@ -32,30 +38,44 @@ button:hover {
   align-items: center;
 
   font-family: 'Roboto', sans-serif;
+
+  @include mobile(portrait) {
+    height: calc(100vh - 4rem);
+  }
+
+  @include mobile(landscape) {
+    height: calc(100vw - 4rem);
+  }
 }
 
-.homepage-image {
+.logo {
   margin-bottom: 30px;
 }
 
 .homepage-buttons-box {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  width: 200px;
-  height: 100px;
+  justify-content: center;
+  width: auto;
+  height: auto;
 
   &__button {
-    height: 40px;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 8px;
   }
 }
 
-.create-register {
+.popup-bg {
   background-color: #ffffff;
   position: absolute;
   top: calc(3% + #{$header-height});
-  width: 450px;
-  height: 480px;
+  width: 40vw;
+  height: auto;
   border-radius: 3px;
   padding: 30px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.219);
@@ -64,45 +84,48 @@ button:hover {
   flex-direction: column;
   align-items: center;
 
+  @include mobile(portrait) {
+    width: 80vw;
+    height: auto;
+  }
+
+  @include mobile(landscape) {
+    width: 80vw;
+    height: auto;
+  }
+
   &__label {
-    font-size: 13px;
+    font-size: 15px;
     align-self: flex-start;
     font-family: 'Roboto', sans-serif;
   }
 
+  &__error-msg {
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    color: red;
+    font-weight: bold;
+  }
+
   &__input {
-    width: 445px;
-    height: 25px;
+    width: 100%;
+    height: 4vh;
     margin-bottom: 15px;
     margin-top: 5px;
     outline: none;
+    border: 1px solid #3d311b4b;
 
     font-family: 'Roboto', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
   }
-}
-
-.show-registers {
-  background-color: #ffffff;
-  position: absolute;
-  top: calc(3% + #{$header-height});
-  width: 580px;
-  height: 480px;
-  border-radius: 3px;
-  padding: 30px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.219);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   &__scrollbox {
-    background-color: #fde4bf;
-    width: 550px;
-    height: 400px;
-    border-radius: 3px;
-    padding: 20px;
+    background-color: lightgoldenrodyellow;
+    width: 100%;
+    height: 500px;
+    border-radius: 5px;
     overflow: auto;
+    padding: 10px;
 
     text-align: left;
     font-size: 12px;
@@ -110,19 +133,23 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: left;
+    align-items: center;
 
     &__items {
       background-color: white;
+      border: 1px solid #3d311b36;
+      width: 370px;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: 2px;
       margin-bottom: 10px;
     }
   }
 }
 
 .input-container {
-  width: 500px;
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
 
@@ -134,6 +161,7 @@ button:hover {
     width: 200px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 15px;
   }
 
   &__label {
@@ -144,20 +172,39 @@ button:hover {
 }
 
 .popup-button-box {
-  width: 180px;
+  width: 60%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  margin-top: 20px; 
+  margin-left: auto;
+  margin-right: auto;
 
   &__button {
-    width: 80px;
-    height: 30px;
+    width: auto;
+    height: auto;
+    margin: 10px;
+    padding: 12px;
+
   }
 }
 
-.register-confirmation {
+.blur-bg {
+  position: fixed;
+  top: 0rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #2523233a;
+}
+
+.confirmation-popup {
   background-color: white;
   position: absolute;
   margin: auto;

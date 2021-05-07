@@ -47,11 +47,10 @@
 
       <label for="other">Other</label>
       <input #other type="radio" name="radsex" (click)="fetchSelectedGender()">
-      <input type="text" placeholder="Type your gender" *ngIf="toggle.otherGender" [(ngModel)]="user.gender.otherDescription">
+      <input type="text" placeholder="Type your gender" *ngIf="toggle.gender.other" [(ngModel)]="user.gender.otherDescription">
     </div>
 
-    <button class="signup-btn-popup" (click)="userSignUp( user )">Sign Up</button>
-
+    <button class="signup-btn-popup" (click)="create(user)">Sign Up</button>
   </div>
 
 <!-- esboco para lista inscritos -->

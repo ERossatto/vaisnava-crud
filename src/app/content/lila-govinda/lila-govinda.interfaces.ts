@@ -1,15 +1,22 @@
-export interface IUser {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  birthday: number;
-  gender: IGender;
+export class User {
+  public firstName: string;
+  public lastName: string;
+  public email: string;
+  public password: string;
+  public birthday: number;
+  public gender: Gender;
+
+  constructor() {
+    this.gender = new Gender();
+  }
 }
 
-export interface IGender {
-  male: boolean;
-  female: boolean;
-  other: boolean;
-  otherDescription: string;
+export class Gender {
+  public male: boolean;
+  public female: boolean;
+  public other: boolean;
+  public otherDescription: string;
+
+  constructor() {
+  }
 }

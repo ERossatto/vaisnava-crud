@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IUser, IGender } from './lila-govinda.interfaces'
+import { Component, HostListener, OnInit, SimpleChange, ViewChild } from '@angular/core';
+import { User } from './lila-govinda.interfaces'
 
 @Component({
   selector: 'app-lila-govinda',
@@ -9,30 +9,22 @@ import { IUser, IGender } from './lila-govinda.interfaces'
 
 export class LilaGovindaComponent implements OnInit {
 
-  public dataBase: Array<IUser> = [];
+  // variavel de mock de banco de dados que ainda nao existe
+  public dataBase: Array<User> = [];
 
+  // objeto de toggles para abrir e fechar coisas
   public toggle = {
-    male: false,
-    female: false,
-    otherGender: false,
+    gender: {
+      male: false,
+      female: false,
+      other: false,
+    },
     signUpPopUp: false,
   }
 
-  public user: IUser = {
-    firstName: undefined,
-    lastName: undefined,
-    email: undefined,
-    password: undefined,
-    birthday: undefined,
-  }
+  public user: User = new User();
 
-  public gender: IGender = {
-    male: false,
-    female: false,
-    other: false,
-    otherDescription: undefined
-  }
-
+  // view child serve para fazer leitura de uma tag. voce declara uma diretiva de nome na tag e faz a leitura aqui entre parentenses
   @ViewChild('male') maleCheckBox;
   @ViewChild('female') femaleCheckBox;
   @ViewChild('other') otherCheckBox;
@@ -40,7 +32,13 @@ export class LilaGovindaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('-->: ', 'Oi LILA');
   }
+
+  ngOnDestroy() {
+    console.log('-->: ', 'tchau Lila');
+  }
+
 
   private clearForm(): void {
     this.user.firstName = undefined;
@@ -48,10 +46,10 @@ export class LilaGovindaComponent implements OnInit {
     this.user.email = undefined;
     this.user.password = undefined;
     this.user.birthday = undefined;
-    this.gender.male = false;
-    this.gender.female = false;
-    this.gender.other = false;
-    this.gender.otherDescription = undefined;
+    this.user.gender.male = false;
+    this.user.gender.female = false;
+    this.user.gender.other = false;
+    this.user.gender.otherDescription = undefined;
   }
 
   fetchSelectedGender() {
@@ -67,7 +65,7 @@ export class LilaGovindaComponent implements OnInit {
       this.user.gender.female = false;
       this.user.gender.other = false;
       this.user.gender.otherDescription = undefined;
-      this.toggle.otherGender = false;
+      this.toggle.gender.other = false;
     };
 
     resetGender();
@@ -79,7 +77,7 @@ export class LilaGovindaComponent implements OnInit {
       this.user.gender.female = true;
     }
     else if (isChecked.other) {
-      this.toggle.otherGender = true;
+      this.toggle.gender.other = true;
       this.user.gender.other = true;
     }
 
@@ -89,15 +87,14 @@ export class LilaGovindaComponent implements OnInit {
 
   // }
 
-  public create(): void {
+  public create( user: User ): void {
+
     // if (this.checkError()) return;
 
-    this.dataBase.push({...this.user});
+    this.dataBase.push({...user});
 
     this.clearForm();
 
     this.toggle.signUpPopUp = false;
   }
-
-
 }

@@ -1,39 +1,36 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { IUser, IGender } from './lila-govinda.interfaces'
 
 @Component({
   selector: 'app-lila-govinda',
   templateUrl: './lila-govinda.component.html',
   styleUrls: ['./lila-govinda.component.scss']
 })
+
 export class LilaGovindaComponent implements OnInit {
 
-  // variaveis aqui
-  // toggleSignUpPopUp = false;
-  // toggleOtherGender = false;
+  public dataBase: Array<IUser> = [];
 
-  dataBase = [];
-
-  // mockDataBase = ['um', 'dois', ' tres', 'quatro', 'cinco', 'seis'];
-
-  toggle = {
+  public toggle = {
     male: false,
     female: false,
     otherGender: false,
     signUpPopUp: false,
   }
 
-  user = {
+  public user: IUser = {
     firstName: undefined,
     lastName: undefined,
     email: undefined,
     password: undefined,
     birthday: undefined,
-    gender: {
-      male: false,
-      female: false,
-      other: false,
-      otherDescription: undefined
-    },
+  }
+
+  public gender: IGender = {
+    male: false,
+    female: false,
+    other: false,
+    otherDescription: undefined
   }
 
   @ViewChild('male') maleCheckBox;
@@ -45,22 +42,16 @@ export class LilaGovindaComponent implements OnInit {
   ngOnInit() {
   }
 
-  // metodos (funções) aqui
-
-  userSignUp( user ) {
-    this.dataBase.push({...user});
-
-    this.toggle.signUpPopUp = false;
-
-    // chama a resetUser() aqui
-  }
-
-  resetUser() {
-    // resetar todas os atributos de user (quem comecou undefined volta undefined quem comecou false volta false)
-  }
-
-  teste() {
-    console.log(this.dataBase)
+  private clearForm(): void {
+    this.user.firstName = undefined;
+    this.user.lastName = undefined;
+    this.user.email = undefined;
+    this.user.password = undefined;
+    this.user.birthday = undefined;
+    this.gender.male = false;
+    this.gender.female = false;
+    this.gender.other = false;
+    this.gender.otherDescription = undefined;
   }
 
   fetchSelectedGender() {
@@ -93,5 +84,20 @@ export class LilaGovindaComponent implements OnInit {
     }
 
   }
+
+  // private checkError(): boolean {
+
+  // }
+
+  public create(): void {
+    // if (this.checkError()) return;
+
+    this.dataBase.push({...this.user});
+
+    this.clearForm();
+
+    this.toggle.signUpPopUp = false;
+  }
+
 
 }

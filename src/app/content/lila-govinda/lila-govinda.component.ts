@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { Component, HostListener, OnInit, SimpleChange, ViewChild } from '@angular/core';
 import { User } from './lila-govinda.interfaces'
 
@@ -9,10 +10,8 @@ import { User } from './lila-govinda.interfaces'
 
 export class LilaGovindaComponent implements OnInit {
 
-  // variavel de mock de banco de dados que ainda nao existe
-  public dataBase: Array<User> = [];
+  public dataBase: Array<User> = []
 
-  // objeto de toggles para abrir e fechar coisas
   public toggle = {
     gender: {
       male: false,
@@ -22,79 +21,84 @@ export class LilaGovindaComponent implements OnInit {
     signUpPopUp: false,
   }
 
-  public user: User = new User();
+  // ????
+  public user: User = new User()
 
-  // view child serve para fazer leitura de uma tag. voce declara uma diretiva de nome na tag e faz a leitura aqui entre parentenses
-  @ViewChild('male') maleCheckBox;
-  @ViewChild('female') femaleCheckBox;
-  @ViewChild('other') otherCheckBox;
+  // OK
+  @ViewChild('male') maleCheckBox
+  @ViewChild('female') femaleCheckBox
+  @ViewChild('other') otherCheckBox
 
+  // porque esta aqui se nao faz nada
   constructor() { }
 
+  // porque esta aqui se nao faz nada
   ngOnInit() {
-    console.log('-->: ', 'Oi LILA');
   }
 
-  ngOnDestroy() {
-    console.log('-->: ', 'tchau Lila');
-  }
-
-
+  // OK
   private clearForm(): void {
-    this.user.firstName = undefined;
-    this.user.lastName = undefined;
-    this.user.email = undefined;
-    this.user.password = undefined;
-    this.user.birthday = undefined;
-    this.user.gender.male = false;
-    this.user.gender.female = false;
-    this.user.gender.other = false;
-    this.user.gender.otherDescription = undefined;
+    this.user.firstName = undefined
+    this.user.lastName = undefined
+    this.user.email = undefined
+    this.user.password = undefined
+    this.user.birthday = undefined
+    this.user.gender.male = false
+    this.user.gender.female = false
+    this.user.gender.other = false
+    this.user.gender.otherDescription = undefined
   }
 
+  // OK
   fetchSelectedGender() {
 
+
+    // OK
     const isChecked = {
       male: this.maleCheckBox.nativeElement.checked,
       female: this.femaleCheckBox.nativeElement.checked,
       other: this.otherCheckBox.nativeElement.checked,
     };
 
+    // OK
     const resetGender = () => {
-      this.user.gender.male = false;
-      this.user.gender.female = false;
-      this.user.gender.other = false;
-      this.user.gender.otherDescription = undefined;
-      this.toggle.gender.other = false;
+      this.user.gender.male = false
+      this.user.gender.female = false
+      this.user.gender.other = false
+      this.user.gender.otherDescription = undefined
+      this.toggle.gender.other = false
     };
 
-    resetGender();
+    // ????
+    resetGender()
 
+    // OK
     if (isChecked.male) {
-      this.user.gender.male = true;
+      this.user.gender.male = true
     }
     else if (isChecked.female) {
-      this.user.gender.female = true;
+      this.user.gender.female = true
     }
     else if (isChecked.other) {
-      this.toggle.gender.other = true;
-      this.user.gender.other = true;
+      this.toggle.gender.other = true
+      this.user.gender.other = true
     }
 
   }
 
-  // private checkError(): boolean {
-
-  // }
-
-  public create( user: User ): void {
+  // OK
+  public createNewUser( user: User ): void {
 
     // if (this.checkError()) return;
 
-    this.dataBase.push({...user});
+    this.dataBase.push({...user})
 
-    this.clearForm();
+    this.clearForm()
 
-    this.toggle.signUpPopUp = false;
+    this.toggle.signUpPopUp = false
+  }
+
+  public deleteUser( index: number ): void {
+    this.dataBase.splice( index, 1 )
   }
 }

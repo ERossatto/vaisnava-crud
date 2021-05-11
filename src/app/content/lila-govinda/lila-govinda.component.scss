@@ -91,10 +91,15 @@ $blue-lila-govinda: #03a9f4;
       } */
     }
 
-    /* Remove MM-DD-YYYY from date input */
+    /* Styling date input */
     input[type=date]:required:invalid::-webkit-datetime-edit {
       color: transparent;
     }
+    input[type=date]::-webkit-inner-spin-button,
+    input[type=date]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
 
     /* Styling labels*/
     label {
@@ -109,18 +114,26 @@ $blue-lila-govinda: #03a9f4;
     }
   }
 
-  /* Styling the inputs from gender section*/
+  /* Styling gender section*/
   .gender-form {
-    color: white;
+    label {
+      color: white;
+    }
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .gender-form-title {
-    color: white;
+    input[type=text] {
+      position: relative;
+      display: flex;
+      justify-content: left;
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: 1px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+    }
   }
 
   /* Sign up button from popup*/
@@ -144,6 +157,7 @@ $blue-lila-govinda: #03a9f4;
     height: 1.2rem;
     background-color: transparent;
     border: none;
+    cursor: pointer;
   }
   .close:before, .close:after {
     position: absolute;

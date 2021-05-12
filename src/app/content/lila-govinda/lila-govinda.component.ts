@@ -22,7 +22,7 @@ export class LilaGovindaComponent implements OnInit {
   }
 
   // ????
-  public user: User = new User()
+  public user: User = new User
 
   // OK
   @ViewChild('male') maleCheckBox

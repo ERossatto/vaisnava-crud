@@ -23,3 +23,18 @@ TRABALHANDO NO PROJETO
 -Apos todos aprovarem o PR de o merge
 
 -Para atualizar sua branch local com a main remota use o comando "git pull origin main"
+
+--------------------------------------------------------
+DEPLOY
+
+-Ir para a branch main com "git checkout main"
+
+-Atualizar a main com "git pull"
+
+-Instalar o projeto novamente para atualizar com a instalacao ja existente do firebase com o comando "npm install"
+
+-Rodar o comando "npm run deploy" para fazer o deploy
+
+-Caso a pagina nao tenha sido atualizada atualise-a com Ctrl+Shift+R no Brownser
+
+

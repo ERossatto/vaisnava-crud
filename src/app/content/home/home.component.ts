@@ -17,9 +17,23 @@ export class HomeComponent implements OnInit {
   }
 
   teste1() {
+    console.log('List-->: ', this._iteratorExerciseService.getRandomNumberList());
   }
 
   teste2() {
+    const list = this._iteratorExerciseService.getRandomNumberList();
+
+    //codigo
+
+    // this._iteratorExerciseService.checkBiggerThanAHundred();
+  }
+
+  teste3() {
+    const list = this._iteratorExerciseService.getRandomNumberList();
+
+    //codigo
+
+    // this._iteratorExerciseService.checkDivisibleByTwo();
   }
 
 }

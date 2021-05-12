@@ -25,7 +25,7 @@
       </div>
 
       <div class="popup__buttons">
-        <button class="btn btn__white" (click)="create()">Concluir</button>
+        <button class="btn btn__white" (click)="create(pokemon)">Concluir</button>
         <button class="btn btn__white" (click)="toggle.create.hide()">Fechar</button>
         <button class="btn btn__white" (click)="teste()">teste</button>
       </div>
@@ -35,7 +35,7 @@
 
   <div class="item-list">
 
-    <ul *ngFor="let item of dataBase; index as i">
+    <ul *ngFor="let item of read(); index as i">
       <li
         class="item-list__item">
           Nome: {{ item.name }} -

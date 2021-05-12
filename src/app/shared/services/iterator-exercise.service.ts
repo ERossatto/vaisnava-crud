@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class IteratorExerciseService {
 
-
   constructor() { }
 
   public getRandomNumberList(): number[] {

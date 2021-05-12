@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod && firebase deploy"
+    "deploy": "ng build --prod && firebase deploy",
+    "serve:mobile": "ng serve --host=0.0.0.0 --watch"
   },
   "private": true,
   "dependencies": {

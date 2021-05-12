@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Toggle } from 'app/shared/helpers/switches.interface';
-import { IItemToUpdate, IPokemon } from './govinda-das.interfaces';
+import { ItemToUpdate, Pokemon } from './govinda-das.interfaces';
+
+import { CrudService } from 'app/shared/services/crud.service';
 
 @Component({
   selector: 'app-govinda-das',
@@ -9,16 +12,16 @@ import { IItemToUpdate, IPokemon } from './govinda-das.interfaces';
 })
 export class GovindaDasComponent implements OnInit {
 
-  public dataBase: Array<IPokemon> = [];
+  public dataBase: Array<Pokemon> = [];
 
   public toggle = {
     create: new Toggle(),
     update: new Toggle(),
   };
 
-  public pokemon: IPokemon;
+  public pokemon: Pokemon = new Pokemon();
 
-  public itemToUpdate: IItemToUpdate;
+  public itemToUpdate: ItemToUpdate = new ItemToUpdate();
 
   public shakeTest: boolean = false;
 
@@ -29,7 +32,9 @@ export class GovindaDasComponent implements OnInit {
     hasntElement: ''
   };
 
-  constructor() { }
+  constructor(
+    private _crudService: CrudService<Pokemon>,
+  ) { }
 
   ngOnInit() {
   }
@@ -70,23 +75,27 @@ export class GovindaDasComponent implements OnInit {
     return out;
   }
 
-  public create(): void {
+  public create( pokemon: Pokemon ): void {
     if (this.checkError()) return;
 
-    this.dataBase.push( {...this.pokemon} );
+    this._crudService.create(pokemon);
 
     this.clearForm();
 
     this.toggle.create.hide();
   }
 
+  public read(): Array<Pokemon> {
+    return this._crudService.read();
+  }
+
   public update(): void {
-    this.dataBase[this.itemToUpdate.index] = this.itemToUpdate.item;
+    this._crudService.update(this.itemToUpdate.index, this.itemToUpdate.item);
 
     this.toggle.update.hide();
   }
 
-  public openUpdatePopup( item: IPokemon, index: number ): void {
+  public openUpdatePopup( item: Pokemon, index: number ): void {
     this.toggle.update.show();
 
     this.itemToUpdate.item = item;
@@ -94,7 +103,7 @@ export class GovindaDasComponent implements OnInit {
   }
 
   public delete( index: number ): void {
-    this.dataBase.splice( index, 1 );
+    this._crudService.delete(index);
   }
 
   teste() {

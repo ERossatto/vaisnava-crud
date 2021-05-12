@@ -16,7 +16,7 @@
 
   @include mobile(portrait) {
     background-image: none;
-    background-color: pink;
+    background-color: red;
   }
 
   @include mobile(landscape) {

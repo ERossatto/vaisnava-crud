@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser'
 
+import { NgxMaskModule } from 'ngx-mask';
+
 import { GovindaDasComponent } from './govinda-das/govinda-das.component';
 import { HomeComponent } from './home/home.component';
 import { TulasiDasComponent } from './tulasi-das/tulasi-das.component';
@@ -23,6 +25,7 @@ import { CheckListComponent } from './check-list/check-list.component';
     CommonModule,
     FormsModule,
     BrowserModule,
+    NgxMaskModule.forRoot(),
   ],
   exports: [
     HomeComponent,

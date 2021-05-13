@@ -104,7 +104,7 @@
   <div class="popup-bg" *ngIf="toggle.readRegister.status">
 
     <div class="popup-bg__scrollbox">
-      <div class="popup-bg__scrollbox__items" *ngFor="let item of dataBase; index as i">
+      <div class="popup-bg__scrollbox__items" *ngFor="let item of readRegister(); index as i">
           <p>
             <span style="font-weight: bold;">
               {{item.spiritualName}}

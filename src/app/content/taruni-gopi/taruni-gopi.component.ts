@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Toggle } from 'app/shared/helpers/switches.interface';
-import { IDevotee } from './taruni-gopi.interfaces';
+import { CrudService } from 'app/shared/services/crud.service';
+import { Devotee } from './taruni-gopi.interfaces';
 
 @Component({
   selector: 'app-taruni-gopi',
@@ -9,7 +10,7 @@ import { IDevotee } from './taruni-gopi.interfaces';
 })
 export class TaruniGopiComponent implements OnInit {
 
-  public dataBase: Array<IDevotee> = [];
+  public dataBase: Array<Devotee> = [];
 
   public toggle = {
     createRegister: new Toggle(),
@@ -20,13 +21,13 @@ export class TaruniGopiComponent implements OnInit {
     deleteConfirmation: new Toggle()
   };
 
-  public devotee: IDevotee = new IDevotee();
+  public devotee: Devotee = new Devotee();
 
   public itemToUpdate: {
-    item: IDevotee,
+    item: Devotee,
     index: number,
   } = {
-    item: new IDevotee(), 
+    item: new Devotee(), 
     index: undefined
   };
 
@@ -48,9 +49,33 @@ export class TaruniGopiComponent implements OnInit {
     hasDateOfInitiation: ''
   }
 
-  constructor() { }
+  constructor(
+    private _crudService: CrudService<Devotee>,
+  ) {}
 
   ngOnInit(): void {
+  }
+
+  private devoteeReset(): void {
+    this.devotee.spiritualName = undefined;
+    this.devotee.socialName = undefined;
+    this.devotee.adress.city = undefined;
+    this.devotee.adress.state = undefined;
+    this.devotee.adress.country = undefined;
+    this.devotee.contact.phone = undefined;
+    this.devotee.contact.email = undefined;
+    this.devotee.dateOfBirth = undefined;
+    this.devotee.dateOfInitiation = undefined;
+  }
+
+  public handleCreateRegister(): void {
+    this.toggle.createRegister.show();
+    this.toggle.registerConfirmation.hide();
+  }
+
+  public handleReadRegister(): void {
+    this.toggle.readRegister.show();
+    this.toggle.registerConfirmation.hide();
   }
 
   private checkError(): boolean {
@@ -134,7 +159,6 @@ export class TaruniGopiComponent implements OnInit {
     const _socialName = (this.toggle.createRegister.status) ? this.devotee.socialName : this.itemToUpdate.item.socialName;
     const _dateOfBirth = (this.toggle.createRegister.status) ? this.devotee.dateOfBirth : this.itemToUpdate.item.dateOfBirth;
 
-    // Não entendi essa parte.
     const out = this.dataBase.some( (item) => {
       return (
         ( item.socialName.toUpperCase() == _socialName.toUpperCase() ) &&
@@ -147,12 +171,10 @@ export class TaruniGopiComponent implements OnInit {
     return out;
   }
 
-  public createRegister( IDevotee ): void {
+  public createRegister( devotee: Devotee ): void {
     if (this.checkError()) return;
 
-    const parsedDevotee = JSON.parse(JSON.stringify(IDevotee));
-
-    this.dataBase.push(parsedDevotee);
+    this._crudService.create(devotee);
 
     this.toggle.createRegister.hide();
     this.toggle.registerConfirmation.show();
@@ -160,29 +182,11 @@ export class TaruniGopiComponent implements OnInit {
     this.devoteeReset();
   }
 
-  public handleCreateRegister(): void {
-    this.toggle.createRegister.show();
-    this.toggle.registerConfirmation.hide();
+  public readRegister(): Array<Devotee> {
+    return this._crudService.read();
   }
 
-  public handleReadRegister(): void {
-    this.toggle.readRegister.show();
-    this.toggle.registerConfirmation.hide();
-  }
-
-  private devoteeReset(): void {
-    this.devotee.spiritualName = undefined;
-    this.devotee.socialName = undefined;
-    this.devotee.adress.city = undefined;
-    this.devotee.adress.state = undefined;
-    this.devotee.adress.country = undefined;
-    this.devotee.contact.phone = undefined;
-    this.devotee.contact.email = undefined;
-    this.devotee.dateOfBirth = undefined;
-    this.devotee.dateOfInitiation = undefined;
-  }
-
-  public openUpdatePopup(item: IDevotee, index: number): void {
+  public openUpdatePopup(item: Devotee, index: number): void {
     this.toggle.updateRegister.show();
 
     this.itemToUpdate.item = item;
@@ -192,7 +196,7 @@ export class TaruniGopiComponent implements OnInit {
   public updateRegister(): void {
     if (this.checkError()) return;
 
-    this.dataBase[this.itemToUpdate.index] = this.itemToUpdate.item;
+    this._crudService.update(this.itemToUpdate.index, this.itemToUpdate.item);
 
     this.toggle.updateRegister.hide();
     this.toggle.updateConfirmation.show();
@@ -204,7 +208,8 @@ export class TaruniGopiComponent implements OnInit {
   }
 
   public deleteRegister( index: number ): void {
-    this.dataBase.splice( index, 1 );
+    this._crudService.delete(index);
+
     this.toggle.deleteConfirmation.hide();
   }
 }

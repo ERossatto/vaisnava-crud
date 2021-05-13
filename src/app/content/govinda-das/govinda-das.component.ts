@@ -12,8 +12,6 @@ import { CrudService } from 'app/shared/services/crud.service';
 })
 export class GovindaDasComponent implements OnInit {
 
-  public dataBase: Array<Pokemon> = [];
-
   public toggle = {
     create: new Toggle(),
     update: new Toggle(),
@@ -22,15 +20,6 @@ export class GovindaDasComponent implements OnInit {
   public pokemon: Pokemon = new Pokemon();
 
   public itemToUpdate: ItemToUpdate = new ItemToUpdate();
-
-  public shakeTest: boolean = false;
-
-  public errorMsg = {
-    hasntName: '',
-    hasntAtk: '',
-    hasntDef: '',
-    hasntElement: ''
-  };
 
   constructor(
     private _crudService: CrudService<Pokemon>,
@@ -46,38 +35,7 @@ export class GovindaDasComponent implements OnInit {
     this.pokemon.element = undefined;
   }
 
-  private checkError(): boolean {
-
-    const hasntName: boolean = !this.pokemon.name;
-    const hasntAtk: boolean = !this.pokemon.atk;
-    const hasntDef: boolean = !this.pokemon.def;
-    const hasntElement: boolean = !this.pokemon.element;
-
-    if (hasntName) this.errorMsg.hasntName = 'O pokemon precisa ter um nome treinador!';
-    else this.errorMsg.hasntName = '';
-
-    if (hasntAtk) this.errorMsg.hasntAtk = 'O pokemon precisa ter ataque treinador!';
-    else this.errorMsg.hasntAtk = '';
-
-    if (hasntDef) this.errorMsg.hasntDef = 'O pokemon precisa ter defesa treinador!';
-    else this.errorMsg.hasntDef = '';
-
-    if (hasntElement) this.errorMsg.hasntElement = 'O pokemon precisa ter um elemento treinador!';
-    else this.errorMsg.hasntElement = '';
-
-    const out = (
-      hasntName ||
-      hasntAtk ||
-      hasntDef ||
-      hasntElement
-    );
-
-    return out;
-  }
-
   public create( pokemon: Pokemon ): void {
-    if (this.checkError()) return;
-
     this._crudService.create(pokemon);
 
     this.clearForm();
@@ -89,25 +47,21 @@ export class GovindaDasComponent implements OnInit {
     return this._crudService.read();
   }
 
-  public update(): void {
-    this._crudService.update(this.itemToUpdate.index, this.itemToUpdate.item);
+  public update(index: number, item: Pokemon): void {
+    this._crudService.update(index, item);
 
     this.toggle.update.hide();
   }
 
-  public openUpdatePopup( item: Pokemon, index: number ): void {
+  public openUpdatePopup( index: number, item: Pokemon ): void {
     this.toggle.update.show();
 
-    this.itemToUpdate.item = item;
     this.itemToUpdate.index = index;
+    this.itemToUpdate.item = item;
   }
 
   public delete( index: number ): void {
     this._crudService.delete(index);
-  }
-
-  teste() {
-    this.shakeTest = !this.shakeTest;
   }
 
 }

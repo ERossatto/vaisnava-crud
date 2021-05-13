@@ -11,6 +11,7 @@ import { TulasiDasComponent } from './tulasi-das/tulasi-das.component';
 import { TaruniGopiComponent } from './taruni-gopi/taruni-gopi.component';
 import { LilaGovindaComponent } from './lila-govinda/lila-govinda.component';
 import { CheckListComponent } from './check-list/check-list.component';
+import { FormPopupComponent } from './govinda-das/form-popup/form-popup.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CheckListComponent } from './check-list/check-list.component';
     TaruniGopiComponent,
     LilaGovindaComponent,
     CheckListComponent,
+    FormPopupComponent,
   ],
   imports: [
     CommonModule,

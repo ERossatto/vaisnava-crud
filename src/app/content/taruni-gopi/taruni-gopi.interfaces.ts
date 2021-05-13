@@ -1,4 +1,4 @@
-export class IDevotee {
+export class Devotee {
   public spiritualName: string;
   public socialName: string;
   public adress: Adress;

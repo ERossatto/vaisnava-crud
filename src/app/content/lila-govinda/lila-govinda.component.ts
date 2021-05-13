@@ -1,97 +1,104 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { style } from '@angular/animations';
+import { Component, HostListener, OnInit, SimpleChange, ViewChild } from '@angular/core';
+import { User } from './lila-govinda.interfaces'
 
 @Component({
   selector: 'app-lila-govinda',
   templateUrl: './lila-govinda.component.html',
   styleUrls: ['./lila-govinda.component.scss']
 })
+
 export class LilaGovindaComponent implements OnInit {
 
-  // variaveis aqui
-  // toggleSignUpPopUp = false;
-  // toggleOtherGender = false;
+  public dataBase: Array<User> = []
 
-  dataBase = [];
-
-  // mockDataBase = ['um', 'dois', ' tres', 'quatro', 'cinco', 'seis'];
-
-  toggle = {
-    male: false,
-    female: false,
-    otherGender: false,
-    signUpPopUp: false,
-  }
-
-  user = {
-    firstName: undefined,
-    lastName: undefined,
-    email: undefined,
-    password: undefined,
-    birthday: undefined,
+  public toggle = {
     gender: {
       male: false,
       female: false,
       other: false,
-      otherDescription: undefined
     },
+    signUpPopUp: false,
   }
 
-  @ViewChild('male') maleCheckBox;
-  @ViewChild('female') femaleCheckBox;
-  @ViewChild('other') otherCheckBox;
+  // ????
+  public user: User = new User()
 
+  // OK
+  @ViewChild('male') maleCheckBox
+  @ViewChild('female') femaleCheckBox
+  @ViewChild('other') otherCheckBox
+
+  // porque esta aqui se nao faz nada
   constructor() { }
 
+  // porque esta aqui se nao faz nada
   ngOnInit() {
   }
 
-  // metodos (funções) aqui
-
-  userSignUp( user ) {
-    this.dataBase.push({...user});
-
-    this.toggle.signUpPopUp = false;
-
-    // chama a resetUser() aqui
+  // OK
+  private clearForm(): void {
+    this.user.firstName = undefined
+    this.user.lastName = undefined
+    this.user.email = undefined
+    this.user.password = undefined
+    this.user.birthday = undefined
+    this.user.gender.male = false
+    this.user.gender.female = false
+    this.user.gender.other = false
+    this.user.gender.otherDescription = undefined
   }
 
-  resetUser() {
-    // resetar todas os atributos de user (quem comecou undefined volta undefined quem comecou false volta false)
-  }
-
-  teste() {
-    console.log(this.dataBase)
-  }
-
+  // OK
   fetchSelectedGender() {
 
+
+    // OK
     const isChecked = {
       male: this.maleCheckBox.nativeElement.checked,
       female: this.femaleCheckBox.nativeElement.checked,
       other: this.otherCheckBox.nativeElement.checked,
     };
 
+    // OK
     const resetGender = () => {
-      this.user.gender.male = false;
-      this.user.gender.female = false;
-      this.user.gender.other = false;
-      this.user.gender.otherDescription = undefined;
-      this.toggle.otherGender = false;
+      this.user.gender.male = false
+      this.user.gender.female = false
+      this.user.gender.other = false
+      this.user.gender.otherDescription = undefined
+      this.toggle.gender.other = false
     };
 
-    resetGender();
+    // ????
+    resetGender()
 
+    // OK
     if (isChecked.male) {
-      this.user.gender.male = true;
+      this.user.gender.male = true
     }
     else if (isChecked.female) {
-      this.user.gender.female = true;
+      this.user.gender.female = true
     }
     else if (isChecked.other) {
-      this.toggle.otherGender = true;
-      this.user.gender.other = true;
+      this.toggle.gender.other = true
+      this.user.gender.other = true
     }
 
   }
 
+  // OK
+  public createNewUser( user: User ): void {
+
+    // if (this.checkError()) return;
+
+    this.dataBase.push({...user})
+
+    this.clearForm()
+
+    this.toggle.signUpPopUp = false
+  }
+
+  public deleteUser( index: number ): void {
+    this.dataBase.splice( index, 1 )
+  }
 }

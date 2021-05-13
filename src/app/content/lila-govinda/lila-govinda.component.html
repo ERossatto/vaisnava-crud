@@ -2,21 +2,41 @@
 
 <!-- Sign up form -->
   <div>
-    <button (click)="toggle.signUpPopUp = true">Sign up</button>
+    <button class="signup-btn-home" (click)="toggle.signUpPopUp = true">Sign up</button>
   </div>
 
   <div class="popup" *ngIf="toggle.signUpPopUp">
-    <button class="popup__close" (click)="toggle.signUpPopUp = false">x</button>
-    <input type="text" id="firstname" class="form" placeholder="First name" required [(ngModel)]="user.firstName">
-    <input type="text" id="lastname" class="form" placeholder="Last name" required [(ngModel)]="user.lastName">
-    <input type="text" id="email" class="form" placeholder="Email" required [(ngModel)]="user.email">
-    <input type="password" id="password" class="form" placeholder="New password" required [(ngModel)]="user.password">
-    <label class="form">Birthday</label>
-    <input type="date" id="birthday" class="form" required [(ngModel)]="user.birthday">
+
+    <button class="close" (click)="toggle.signUpPopUp = false"></button>
+
+    <div class="popup__input-box">
+      <input type="text" id="firstname" autocomplete="off" required [(ngModel)]="user.firstName">
+      <label>First name</label>
+    </div>
+
+    <div class="popup__input-box">
+      <input type="text" id="lastname" autocomplete="off" required [(ngModel)]="user.lastName">
+      <label>Last name</label>
+    </div>
+
+    <div class="popup__input-box">
+      <input type="text" id="email" autocomplete="off" required [(ngModel)]="user.email">
+      <label>Email</label>
+    </div>
+
+    <div class="popup__input-box">
+      <input type="password" id="password" autocomplete="off" required [(ngModel)]="user.password">
+      <label>Password</label>
+    </div>
+
+    <div class="popup__input-box">
+      <input type="date" autocomplete="off" required [(ngModel)]="user.birthday">
+      <label>Birthday</label>
+    </div>
 
     <!-- Selecting gender -->
-    <div class="genderForm">
-      <p class="genderForm">Gender</p>
+    <div class="gender-form">
+
       <label for="male">Male</label>
       <input #male type="radio" name="radsex" (click)="fetchSelectedGender()">
 
@@ -25,29 +45,30 @@
 
       <label for="other">Other</label>
       <input #other type="radio" name="radsex" (click)="fetchSelectedGender()">
-      <input type="text" placeholder="Type your gender" *ngIf="toggle.otherGender" [(ngModel)]="user.gender.otherDescription">
+      <input type="text" placeholder="Type your gender" *ngIf="toggle.gender.other" [(ngModel)]="user.gender.otherDescription">
     </div>
 
-    <button (click)="userSignUp( user )">Sign Up</button>
-
+    <button class="signup-btn-popup" (click)="createNewUser(user)">Sign Up</button>
   </div>
 
-  <!-- esboco para lista de pessoas -->
-  <div style="height: 25rem; background-color: blue;">
+<!-- esboco para lista inscritos -->
+  <div style="height: 25rem; background-color: #F58702;">
+
     <ul *ngFor="let item of dataBase">
       <li>
-        {{item.firstName}} |
-        {{item.lastName}} |
-        {{item.email}} |
-        {{item.birthday}} |
-        {{(item.gender.male) ? 'male |' : ''}}
-        {{(item.gender.female) ? 'female |' : ''}}
-        {{(item.gender.other) ? 'other |' : ''}}
-        {{item.gender.otherDescription}}
+        First name: {{item.firstName}} |
+        Last name: {{item.lastName}} |
+        Email: {{item.email}} |
+        Birthday: {{item.birthday}} |
+        <!-- {{(item.gender.male) ? 'Male |' : ''}}
+        {{(item.gender.female) ? 'Female |' : ''}}
+        {{(item.gender.other) ? 'Other |' : ''}}
+        {{item.gender.otherDescription}} -->
       </li>
-      <button>delete</button>
-      <button>update</button>
+      <button (click)="delete()">Delete user</button>
+      <button>Update user</button>
     </ul>
+
   </div>
 
 </section>

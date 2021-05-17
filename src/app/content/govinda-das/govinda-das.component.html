@@ -2,36 +2,13 @@
 
   <button class="btn btn__add" (click)="toggle.create.show()">Adicionar novo Pokemon</button>
 
-  <div class="popup-bg" *ngIf="toggle.create.status">
-    <div class="popup">
-      <div class="popup__input-container">
-        <input type="text" [(ngModel)]="pokemon.name" placeholder="Digite o nome do Pokemon" [ngClass]="{'shake': errorMsg.hasntName.length > 0}" maxlength="10">
-        <span class="popup__error-msg" *ngIf="errorMsg.hasntName.length > 0">{{errorMsg.hasntName}}</span>
-      </div>
-
-      <div class="popup__input-container">
-        <input type="number" [(ngModel)]="pokemon.atk" placeholder="Digite o ataque do Pokemon" [ngClass]="{'shake': errorMsg.hasntAtk.length > 0}">
-        <span class="popup__error-msg" *ngIf="errorMsg.hasntAtk.length > 0">{{errorMsg.hasntAtk}}</span>
-      </div>
-
-      <div class="popup__input-container">
-        <input type="number" [(ngModel)]="pokemon.def" placeholder="Digite a defesa do Pokemon" [ngClass]="{'shake': errorMsg.hasntDef.length > 0}">
-        <span class="popup__error-msg" *ngIf="errorMsg.hasntDef.length > 0">{{errorMsg.hasntDef}}</span>
-      </div>
-
-      <div class="popup__input-container">
-        <input type="text" [(ngModel)]="pokemon.element" placeholder="Digite o elemento do Pokemon" [ngClass]="{'shake': errorMsg.hasntElement.length > 0}">
-        <span class="popup__error-msg" *ngIf="errorMsg.hasntElement.length > 0">{{errorMsg.hasntElement}}</span>
-      </div>
-
-      <div class="popup__buttons">
-        <button class="btn btn__white" (click)="create(pokemon)">Concluir</button>
-        <button class="btn btn__white" (click)="toggle.create.hide()">Fechar</button>
-        <button class="btn btn__white" (click)="teste()">teste</button>
-      </div>
-
-    </div>
-  </div>
+  <form-popup
+    [pokemon]="pokemon"
+    [toggle]="toggle.create.status"
+    (onSubmit)="create($event)"
+    (onClose)="toggle.create.hide()"
+  >
+  </form-popup>
 
   <div class="item-list">
 
@@ -42,27 +19,19 @@
           Ataque: {{ item.atk }} -
           Defesa: {{ item.def }} -
           Elemento: {{ item.element }}
-          <button (click)="openUpdatePopup(item, i)">Alterar</button>
+          <button (click)="openUpdatePopup(i, item)">Alterar</button>
           <button (click)="delete(i)">Deletar</button>
       </li>
     </ul>
 
   </div>
 
-  <div class="popup-bg" *ngIf="toggle.update.status">
-    <div class="popup" *ngIf="toggle.update.status">
-
-      <input type="text" [(ngModel)]="itemToUpdate.item.name" placeholder="Digite o nome do Pokemon">
-      <input type="number" [(ngModel)]="itemToUpdate.item.atk" placeholder="Digite o ataque do Pokemon">
-      <input type="number" [(ngModel)]="itemToUpdate.item.def" placeholder="Digite a defesa do Pokemon">
-      <input type="text" [(ngModel)]="itemToUpdate.item.element" placeholder="Digite o elemento do Pokemon">
-
-      <div class="popup__buttons">
-        <button class="btn btn__white" (click)="update()">Concluir</button>
-        <button class="btn btn__white" (click)="toggle.update.hide()">Fechar</button>
-      </div>
-
-    </div>
-  </div>
+  <form-popup
+    [pokemon]="itemToUpdate.item"
+    [toggle]="toggle.update.status"
+    (onSubmit)="update(itemToUpdate.index, $event)"
+    (onClose)="toggle.update.hide()"
+  >
+  </form-popup>
 
 </section>

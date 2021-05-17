@@ -24,111 +24,6 @@
     background-color: green;
   }
 
-  .btn {
-    cursor: pointer;
-
-    &__add {
-      position: absolute;
-      top: calc(1rem + #{$header-height});
-      left: 1rem;
-
-      height: 3rem;
-      width: 15rem;
-
-      background-color: red;
-      border: none;
-      border-radius: 25px;
-
-      color: white;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    &__white {
-      background-color: white;
-
-      height: 1.5rem;
-
-      border: none;
-      border-radius: 15px;
-
-      color: black;
-
-    }
-  }
-
-  .popup-bg {
-      position: fixed;
-      top: $header-height;
-      left: 0;
-      width: 100%;
-      height: $height-less-header;
-      z-index: 1;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      background-color: rgba(255, 255, 255, .6);
-      backdrop-filter: blur(10px);
-
-
-    .popup {
-      position: absolute;
-
-      background: linear-gradient(
-        90deg,
-        #060073,
-        #0f0fbf,
-        #00d4ff,
-      );
-      background-size: 400% 400%;
-      animation: gradient 5s ease infinite;
-
-      height: 25rem;
-
-      border-radius: 25px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-
-      &__input-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      & input {
-        border: none;
-        border-radius: 15px;
-
-        width: 25rem;
-        margin: .5rem 1rem;
-        padding: .5rem;
-
-        @include mobile(portrait) {
-          width: 18rem;
-        }
-      }
-
-      &__buttons {
-        width: 100%;
-
-        display: flex;
-        justify-content: space-around;
-
-        justify-self: flex-end;
-
-      }
-
-      &__error-msg {
-        color: red;
-      }
-    }
-  }
-
   .item-list {
     background-color: green;
 
@@ -136,6 +31,39 @@
       padding: .5rem;
       margin: .5rem;
     }
+  }
+}
+
+.btn {
+  cursor: pointer;
+
+  &__add {
+    position: absolute;
+    top: calc(1rem + #{$header-height});
+    left: 1rem;
+
+    height: 3rem;
+    width: 15rem;
+
+    background-color: red;
+    border: none;
+    border-radius: 25px;
+
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &__white {
+    background-color: white;
+
+    height: 1.5rem;
+
+    border: none;
+    border-radius: 15px;
+
+    color: black;
+
   }
 }
 

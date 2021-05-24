@@ -1,4 +1,3 @@
-import { style } from '@angular/animations';
 import { Component, HostListener, OnInit, SimpleChange, ViewChild } from '@angular/core';
 import { User } from './lila-govinda.interfaces'
 
@@ -13,15 +12,9 @@ export class LilaGovindaComponent implements OnInit {
   public dataBase: Array<User> = []
 
   public toggle = {
-    gender: {
-      male: false,
-      female: false,
-      other: false,
-    },
     signUpPopUp: false,
   }
 
-  // ????
   public user: User = new User
 
   // OK
@@ -29,10 +22,8 @@ export class LilaGovindaComponent implements OnInit {
   @ViewChild('female') femaleCheckBox
   @ViewChild('other') otherCheckBox
 
-  // porque esta aqui se nao faz nada
   constructor() { }
 
-  // porque esta aqui se nao faz nada
   ngOnInit() {
   }
 
@@ -66,10 +57,9 @@ export class LilaGovindaComponent implements OnInit {
       this.user.gender.female = false
       this.user.gender.other = false
       this.user.gender.otherDescription = undefined
-      this.toggle.gender.other = false
+      // this.toggle.gender.other = false
     };
 
-    // ????
     resetGender()
 
     // OK
@@ -80,7 +70,7 @@ export class LilaGovindaComponent implements OnInit {
       this.user.gender.female = true
     }
     else if (isChecked.other) {
-      this.toggle.gender.other = true
+      // this.toggle.gender.other = true
       this.user.gender.other = true
     }
 
